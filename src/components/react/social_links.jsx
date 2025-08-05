@@ -443,7 +443,7 @@ export default function SocialLinks() {
         >
           <div className="flex items-center justify-center mb-2">
             <div className="w-8 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 mr-3"></div>
-            <div className=" bg-orange-500 text-white px-4 py-1 rounded-full">
+            <div className=" bg-orange-800 text-white px-4 py-1 rounded-full">
               G F C
             </div>
             <div className="w-8 h-0.5 bg-gradient-to-l from-orange-400 to-red-500 ml-3"></div>
