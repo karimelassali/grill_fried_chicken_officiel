@@ -7,9 +7,63 @@ import {
   Mail,
   MapPin,
   ExternalLink,
-  Phone,
 } from "lucide-react";
-import { Image } from "astro:assets";
+
+// Helper function to calculate time left
+const calculateTimeLeft = (targetDate) => {
+  const difference = +new Date(targetDate) - +new Date();
+  let timeLeft = {};
+
+  if (difference > 0) {
+    timeLeft = {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  } else {
+    timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return timeLeft;
+};
+
+// Countdown Component
+const Countdown = ({ date }) => {
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(date));
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft(date));
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  const timerComponents = [];
+
+  Object.keys(timeLeft).forEach((interval) => {
+    if (timeLeft[interval] === undefined) {
+      return;
+    }
+
+    timerComponents.push(
+      <div key={interval} className="flex flex-col items-center mx-2 md:mx-4">
+        <span className="text-4xl md:text-5xl font-bold text-white tracking-wider">
+          {String(timeLeft[interval]).padStart(2, "0")}
+        </span>
+        <span className="text-xs uppercase text-gray-400 mt-1">{interval}</span>
+      </div>
+    );
+  });
+
+  return (
+    <div className="flex justify-center my-6">
+      {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+    </div>
+  );
+};
+
 export default function SocialLinks() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -160,63 +214,6 @@ export default function SocialLinks() {
         >
           🥤
         </motion.div>
-
-        <motion.div
-          animate={{
-            x: [0, 90, 0],
-            y: [0, -60, 0],
-            rotate: [0, 20, 0],
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 8,
-          }}
-          className="absolute top-60 left-5 text-4xl opacity-10"
-        >
-          🌶️
-        </motion.div>
-
-        <motion.div
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 80, 0],
-            rotate: [0, -25, 0],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3,
-          }}
-          className="absolute top-80 right-8 text-6xl opacity-10"
-        >
-          🔥
-        </motion.div>
-
-        {/* Floating sparkles */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.8,
-            }}
-            className="absolute text-yellow-400 text-2xl"
-            style={{
-              left: `${10 + i * 12}%`,
-              top: `${20 + (i % 3) * 25}%`,
-            }}
-          ></motion.div>
-        ))}
       </div>
 
       <motion.div
@@ -248,101 +245,17 @@ export default function SocialLinks() {
 
             {/* Logo Background Circle with shine */}
             <div className="relative w-80 h-80 mx-auto bg-black rounded-full flex items-center justify-center shadow-2xl overflow-hidden border-2 border-gray-800">
-              {/* Rotating shine effect */}
-              <motion.div
-                animate={{
-                  rotate: 360,
-                  opacity: [0.3, 0.7, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute inset-0 bg-gradient-conic from-transparent via-white/20 via-transparent to-transparent rounded-full"
-              />
-
-              {/* Subtle flame effect matching your logo */}
-              <motion.div
-                animate={{
-                  opacity: [0.4, 0.8, 0.4],
-                  scale: [1, 1.02, 1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 bg-gradient-to-t from-orange-600/30 via-red-500/20 to-transparent rounded-full"
-              />
-
-              {/* Sparkle effects around logo */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    scale: [0, 1, 0],
-                    opacity: [0, 1, 0],
-                    rotate: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: i * 0.3,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute w-1 h-1 bg-yellow-400 rounded-full"
-                  style={{
-                    left: `${50 + 45 * Math.cos((i * 60 * Math.PI) / 180)}%`,
-                    top: `${50 + 45 * Math.sin((i * 60 * Math.PI) / 180)}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                />
-              ))}
-
-              {/* GFC Text in your logo style with glow */}
               <motion.img
                 fetchPriority="high"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="relative w-full h-full z-10 text-white font-black text-6xl tracking-wider"
-                style={{
-                  textShadow:
-                    "0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 165, 0, 0.3)",
-                }}
+                className="relative w-full h-full z-10 object-cover"
                 alt="GFC Logo"
                 src="/premuim_logo.avif"
-              ></motion.img>
-
-              {/* Premium shine sweep */}
-              <motion.div
-                animate={{ x: ["-200%", "200%"] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 2,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 w-8"
+                onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/320x320/000000/FFFFFF?text=GFC+Logo'; }}
               />
             </div>
-
-            {/* Premium badge indicator */}
-            {/* <motion.div
-              animate={{ 
-                y: [-2, 2, -2],
-                rotate: [0, 5, -5, 0]
-              }}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white"
-            >
-              <span className="text-white text-xs font-bold">★</span>
-            </motion.div> */}
           </motion.div>
 
           {/* Brand Name matching your logo typography */}
@@ -353,11 +266,19 @@ export default function SocialLinks() {
             GRILL FRIED CHICKEN
           </motion.h1>
 
+          {/* Opening Soon & Countdown */}
+          <motion.p variants={itemVariants} className="text-xl font-semibold text-yellow-500 my-2">
+            We're Opening Soon!
+          </motion.p>
+          <motion.div variants={itemVariants}>
+             <Countdown date={"2025-09-15T00:00:00"} />
+          </motion.div>
+
           {/* Professional Halal Badge */}
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
-            className="inline-flex items-center bg-green-800 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg"
+            className="inline-flex items-center bg-green-800 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg mt-4"
           >
             <div className="w-2 h-2 bg-green-300 rounded-full mr-2"></div>
             HALAL CERTIFIED
@@ -423,14 +344,6 @@ export default function SocialLinks() {
                     <ExternalLink className="w-5 h-5" />
                   </motion.div>
                 </div>
-
-                {/* Subtle hover underline effect matching your brand */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: isHovered ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute bottom-0 left-5 right-5 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 origin-left"
-                />
               </motion.a>
             );
           })}
@@ -439,7 +352,7 @@ export default function SocialLinks() {
         {/* Professional Footer */}
         <motion.div
           variants={itemVariants}
-          className="mt-12 pt-8 border-t border-gray-200 text-center"
+          className="mt-12 pt-8 border-t border-gray-700 text-center"
         >
           <div className="flex items-center justify-center mb-2">
             <div className="w-8 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 mr-3"></div>
