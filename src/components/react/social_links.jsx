@@ -224,6 +224,13 @@ export default function SocialLinks() {
       >
         {/* Professional Header with Your Logo Style */}
         <motion.div variants={itemVariants} className="text-center mb-12">
+            <motion.div
+              animate={{ x: ["-10vw", "10vw", "-10vw"] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="fixed  "
+            >
+              <img src="hooked.png" alt="" />
+            </motion.div>
           {/* Logo Container with Premium Shine Effects */}
           <motion.div
             whileHover={{ scale: 1.05 }}
