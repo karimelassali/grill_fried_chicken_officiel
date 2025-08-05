@@ -302,7 +302,7 @@ export default function SocialLinks() {
 
               {/* GFC Text in your logo style with glow */}
               <motion.img
-                fetchPriority="hight"
+                fetchPriority="high"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
