@@ -8,7 +8,13 @@ import '../styles/global.css';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="google-site-verification" content="TFC9KKJST9sPJHv4r0wz0xnmUb09ZFJFC8crGzgUSnk" />
-
+	<script is:inline>
+		window.plausible = window.plausible || function () {
+		  (window.plausible.q = window.plausible.q || []).push(arguments);
+		};
+	  </script>
+	  <script defer data-domain="trygfc.vercel.app" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js"></script>
+	
 	<title>GFC | Il miglior fast food a Castel San Giovanni</title>
 	<meta name="description" content="GFC è un ristorante halal a Castel San Giovanni, specializzato in hamburger piccanti, pollo fritto e fast food delizioso. Vieni a trovarci!" />
 
@@ -29,6 +35,7 @@ import '../styles/global.css';
     <meta name="twitter:description" content="Hamburger piccanti, sapori unici. Visita GFC ora!" />
     <meta name="twitter:image" content="https://trygfc.vercel.app/premuim_logo.avif" />
 
+	
     <meta name="generator" content="Astro" />
     <link rel="icon" type="image/avif" href="/premuim_logo.avif" />
     <link rel="canonical" href="https://trygfc.vercel.app/" />
