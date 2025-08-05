@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  MessageCircle, 
-  Instagram, 
-  Video, 
-  Mail, 
-  MapPin, 
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  MessageCircle,
+  Instagram,
+  Video,
+  Mail,
+  MapPin,
   ExternalLink,
-  Phone
-} from 'lucide-react';
-import { Image } from 'astro:assets';
+  Phone,
+} from "lucide-react";
+import { Image } from "astro:assets";
 export default function SocialLinks() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -20,50 +20,50 @@ export default function SocialLinks() {
 
   const links = [
     {
-      id: 'whatsapp',
-      title: 'WhatsApp',
-      subtitle: 'Order directly',
-      href: 'https://wa.me/3510505298',
+      id: "whatsapp",
+      title: "WhatsApp",
+      subtitle: "Order directly",
+      href: "https://wa.me/3510505298",
       icon: MessageCircle,
-      color: 'border-green-500 hover:bg-green-50',
-      iconColor: 'text-green-600'
+      color: "border-green-500 hover:bg-green-50",
+      iconColor: "text-green-600",
     },
     {
-      id: 'instagram',
-      title: 'Instagram',
-      subtitle: '@grillfriedchicken',
-      href: 'https://instagram.com/grillfriedchicken',
+      id: "instagram",
+      title: "Instagram",
+      subtitle: "@grillfriedchicken",
+      href: "https://instagram.com/grillfriedchicken",
       icon: Instagram,
-      color: 'border-pink-500 hover:bg-pink-50',
-      iconColor: 'text-pink-600'
+      color: "border-pink-500 hover:bg-pink-50",
+      iconColor: "text-pink-600",
     },
     {
-      id: 'tiktok',
-      title: 'TikTok',
-      subtitle: '@grillfriedchicken',
-      href: 'https://tiktok.com/@grillfriedchicken',
+      id: "tiktok",
+      title: "TikTok",
+      subtitle: "@grillfriedchicken",
+      href: "https://tiktok.com/@grillfriedchicken",
       icon: Video,
-      color: 'border-gray-800 hover:bg-gray-50',
-      iconColor: 'text-gray-800'
+      color: "border-gray-800 hover:bg-gray-50",
+      iconColor: "text-gray-800",
     },
     {
-      id: 'email',
-      title: 'Email',
-      subtitle: 'grillfriedchicken@gmail.com',
-      href: 'mailto:grillfriedchicken@gmail.com',
+      id: "email",
+      title: "Email",
+      subtitle: "grillfriedchicken@gmail.com",
+      href: "mailto:grillfriedchicken@gmail.com",
       icon: Mail,
-      color: 'border-red-500 hover:bg-red-50',
-      iconColor: 'text-red-600'
+      color: "border-red-500 hover:bg-red-50",
+      iconColor: "text-red-600",
     },
     {
-      id: 'location',
-      title: 'Location',
-      subtitle: 'Find us on Google Maps',
-      href: 'https://maps.app.goo.gl/Jfa3tceT1iHKbSU88',
+      id: "location",
+      title: "Location",
+      subtitle: "Find us on Google Maps",
+      href: "https://maps.app.goo.gl/Jfa3tceT1iHKbSU88",
       icon: MapPin,
-      color: 'border-blue-500 hover:bg-blue-50',
-      iconColor: 'text-blue-600'
-    }
+      color: "border-blue-500 hover:bg-blue-50",
+      iconColor: "text-blue-600",
+    },
   ];
 
   const containerVariants = {
@@ -72,9 +72,9 @@ export default function SocialLinks() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -84,9 +84,9 @@ export default function SocialLinks() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -98,29 +98,29 @@ export default function SocialLinks() {
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
-            rotate: [0, 10, 0]
+            rotate: [0, 10, 0],
           }}
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute top-20 left-10 text-6xl opacity-10"
         >
           🍔
         </motion.div>
-        
+
         <motion.div
           animate={{
             x: [0, -80, 0],
             y: [0, 60, 0],
-            rotate: [0, -15, 0]
+            rotate: [0, -15, 0],
           }}
           transition={{
             duration: 18,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 2,
           }}
           className="absolute top-40 right-16 text-5xl opacity-10"
         >
@@ -131,13 +131,13 @@ export default function SocialLinks() {
           animate={{
             x: [0, 60, 0],
             y: [0, -40, 0],
-            rotate: [0, 8, 0]
+            rotate: [0, 8, 0],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 4
+            delay: 4,
           }}
           className="absolute bottom-32 left-20 text-7xl opacity-10"
         >
@@ -148,13 +148,13 @@ export default function SocialLinks() {
           animate={{
             x: [0, -70, 0],
             y: [0, 30, 0],
-            rotate: [0, -12, 0]
+            rotate: [0, -12, 0],
           }}
           transition={{
             duration: 22,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 6
+            delay: 6,
           }}
           className="absolute bottom-20 right-10 text-5xl opacity-10"
         >
@@ -165,13 +165,13 @@ export default function SocialLinks() {
           animate={{
             x: [0, 90, 0],
             y: [0, -60, 0],
-            rotate: [0, 20, 0]
+            rotate: [0, 20, 0],
           }}
           transition={{
             duration: 16,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 8
+            delay: 8,
           }}
           className="absolute top-60 left-5 text-4xl opacity-10"
         >
@@ -182,13 +182,13 @@ export default function SocialLinks() {
           animate={{
             x: [0, -50, 0],
             y: [0, 80, 0],
-            rotate: [0, -25, 0]
+            rotate: [0, -25, 0],
           }}
           transition={{
             duration: 14,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 3
+            delay: 3,
           }}
           className="absolute top-80 right-8 text-6xl opacity-10"
         >
@@ -202,22 +202,20 @@ export default function SocialLinks() {
             animate={{
               y: [0, -20, 0],
               opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.2, 1]
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: 3 + i * 0.5,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.8
+              delay: i * 0.8,
             }}
             className="absolute text-yellow-400 text-2xl"
             style={{
               left: `${10 + i * 12}%`,
-              top: `${20 + (i % 3) * 25}%`
+              top: `${20 + (i % 3) * 25}%`,
             }}
-          >
-            
-          </motion.div>
+          ></motion.div>
         ))}
       </div>
 
@@ -228,10 +226,7 @@ export default function SocialLinks() {
         className="relative z-10 max-w-md mx-auto px-6 py-12 flex flex-col items-center justify-center min-h-screen"
       >
         {/* Professional Header with Your Logo Style */}
-        <motion.div
-          variants={itemVariants}
-          className="text-center mb-12"
-        >
+        <motion.div variants={itemVariants} className="text-center mb-12">
           {/* Logo Container with Premium Shine Effects */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -240,13 +235,13 @@ export default function SocialLinks() {
           >
             {/* Glowing Ring */}
             <motion.div
-              animate={{ 
+              animate={{
                 rotate: 360,
-                opacity: [0.5, 0.8, 0.5]
+                opacity: [0.5, 0.8, 0.5],
               }}
-              transition={{ 
+              transition={{
                 rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
               }}
               className="absolute inset-0 w-80 h-80 mx-auto rounded-full bg-gradient-to-r from-orange-400 via-yellow-500 to-orange-400 blur-sm opacity-30"
             />
@@ -255,29 +250,28 @@ export default function SocialLinks() {
             <div className="relative w-80 h-80 mx-auto bg-black rounded-full flex items-center justify-center shadow-2xl overflow-hidden border-2 border-gray-800">
               {/* Rotating shine effect */}
               <motion.div
-                animate={{ 
+                animate={{
                   rotate: 360,
-                  opacity: [0.3, 0.7, 0.3]
+                  opacity: [0.3, 0.7, 0.3],
                 }}
-
-                transition={{ 
-                  duration: 4, 
+                transition={{
+                  duration: 4,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: "linear",
                 }}
                 className="absolute inset-0 bg-gradient-conic from-transparent via-white/20 via-transparent to-transparent rounded-full"
               />
-              
+
               {/* Subtle flame effect matching your logo */}
               <motion.div
-                animate={{ 
+                animate={{
                   opacity: [0.4, 0.8, 0.4],
-                  scale: [1, 1.02, 1]
+                  scale: [1, 1.02, 1],
                 }}
-                transition={{ 
-                  duration: 3, 
+                transition={{
+                  duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
                 className="absolute inset-0 bg-gradient-to-t from-orange-600/30 via-red-500/20 to-transparent rounded-full"
               />
@@ -289,45 +283,46 @@ export default function SocialLinks() {
                   animate={{
                     scale: [0, 1, 0],
                     opacity: [0, 1, 0],
-                    rotate: [0, 180, 360]
+                    rotate: [0, 180, 360],
                   }}
                   transition={{
                     duration: 2,
                     repeat: Infinity,
                     delay: i * 0.3,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
                   className="absolute w-1 h-1 bg-yellow-400 rounded-full"
                   style={{
                     left: `${50 + 45 * Math.cos((i * 60 * Math.PI) / 180)}%`,
                     top: `${50 + 45 * Math.sin((i * 60 * Math.PI) / 180)}%`,
-                    transform: 'translate(-50%, -50%)'
+                    transform: "translate(-50%, -50%)",
                   }}
                 />
               ))}
-              
+
               {/* GFC Text in your logo style with glow */}
               <motion.img
+                fetchPriority="hight"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
                 className="relative w-full h-full z-10 text-white font-black text-6xl tracking-wider"
                 style={{
-                  textShadow: '0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 165, 0, 0.3)'
+                  textShadow:
+                    "0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 165, 0, 0.3)",
                 }}
                 alt="GFC Logo"
-                src="/premuim_logo.png"
-              >
-              </motion.img>
+                src="/premuim_logo.avif"
+              ></motion.img>
 
               {/* Premium shine sweep */}
               <motion.div
-                animate={{ x: ['-200%', '200%'] }}
+                animate={{ x: ["-200%", "200%"] }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
                   repeatDelay: 2,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 w-8"
               />
@@ -370,24 +365,21 @@ export default function SocialLinks() {
         </motion.div>
 
         {/* Clean, Professional Links */}
-        <motion.div
-          variants={containerVariants}
-          className="w-full space-y-4"
-        >
+        <motion.div variants={containerVariants} className="w-full space-y-4">
           {links.map((link) => {
             const IconComponent = link.icon;
             const isHovered = hoveredLink === link.id;
-            
+
             return (
               <motion.a
                 key={link.id}
                 href={link.href}
-                target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
+                target={link.href.startsWith("mailto:") ? "_self" : "_blank"}
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   y: -2,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
                 whileTap={{ scale: 0.98 }}
                 onHoverStart={() => setHoveredLink(link.id)}
@@ -401,9 +393,9 @@ export default function SocialLinks() {
                 <div className="flex items-center">
                   {/* Clean Icon */}
                   <motion.div
-                    animate={{ 
+                    animate={{
                       scale: isHovered ? 1.1 : 1,
-                      rotate: isHovered ? 5 : 0
+                      rotate: isHovered ? 5 : 0,
                     }}
                     transition={{ duration: 0.2 }}
                     className={`
@@ -419,11 +411,9 @@ export default function SocialLinks() {
                     <h3 className="font-bold text-gray-900 text-lg mb-1">
                       {link.title}
                     </h3>
-                    <p className="text-gray-600 text-sm">
-                      {link.subtitle}
-                    </p>
+                    <p className="text-gray-600 text-sm">{link.subtitle}</p>
                   </div>
-                  
+
                   {/* Subtle Arrow */}
                   <motion.div
                     animate={{ x: isHovered ? 5 : 0 }}
@@ -453,7 +443,9 @@ export default function SocialLinks() {
         >
           <div className="flex items-center justify-center mb-2">
             <div className="w-8 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 mr-3"></div>
-            <div className=" bg-orange-500 text-white px-4 py-1 rounded-full">G F C</div>
+            <div className=" bg-orange-500 text-white px-4 py-1 rounded-full">
+              G F C
+            </div>
             <div className="w-8 h-0.5 bg-gradient-to-l from-orange-400 to-red-500 ml-3"></div>
           </div>
           <p className="text-gray-500 text-sm font-medium">

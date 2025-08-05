@@ -6,11 +6,41 @@ import '../styles/global.css';
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/premuim_logo.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  
+		<!-- 🧠 SEO -->
+		<title>GFC | Il miglior fast food della città</title>
+		<meta name="description" content="Il ristorante GFC offre i piatti fast food più deliziosi e hamburger piccanti. Provalo ora!" />
+		<meta name="keywords" content="GFC, fast food, ristorante, hamburger, piccante, Aosta" />
+		<meta name="author" content="Karim El Assali" />
+	  
+		<!-- 📱 Mobile Support -->
+		<meta name="theme-color" content="#ffffff" />
+	  
+		<!-- 🔐 Trust & Robots -->
+		<meta name="robots" content="index, follow" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	  
+		<!-- 🖼️ Social Media preview (OG tags) -->
+		<meta property="og:title" content="GFC | Fast Food Piccante e Gustoso" />
+		<meta property="og:description" content="Prova i nostri hamburger piccanti e piatti deliziosi al ristorante GFC!" />
+		<meta property="og:image" content="/premuim_logo.avif" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://trygfc.vercel.app/" />
+	  
+		<!-- 🐦 Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="GFC | Il miglior fast food della città" />
+		<meta name="twitter:description" content="Hamburger piccanti, sapori unici. Visita GFC ora!" />
+		<meta name="twitter:image" content="/premuim_logo.avif" />
+	  
+		<!-- 🧠 Astro-specific (optional) -->
+		<meta name="generator" content="Astro" />
+	  
+		<!-- 🧠 Favicon -->
+		<link rel="icon" type="image/avif" href="/premuim_logo.avif" />
+	  </head>
+	  
 	<body>
 		<slot />
 	</body>
