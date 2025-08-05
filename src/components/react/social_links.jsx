@@ -357,7 +357,7 @@ export default function SocialLinks() {
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
-            className="inline-flex items-center bg-green-600 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg"
+            className="inline-flex items-center bg-green-800 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg"
           >
             <div className="w-2 h-2 bg-green-300 rounded-full mr-2"></div>
             HALAL CERTIFIED
@@ -408,9 +408,9 @@ export default function SocialLinks() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">
+                    <h2 className="font-bold text-gray-900 text-lg mb-1">
                       {link.title}
-                    </h3>
+                    </h2>
                     <p className="text-gray-600 text-sm">{link.subtitle}</p>
                   </div>
 
