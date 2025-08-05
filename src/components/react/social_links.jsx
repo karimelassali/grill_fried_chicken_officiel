@@ -48,7 +48,7 @@ const Countdown = ({ date }) => {
     }
 
     timerComponents.push(
-      <div key={interval} className="flex flex-col items-center mx-2 md:mx-4">
+      <div key={interval} className="flex backdrop-blur-md rounded p-2 flex-col items-center mx-2 md:mx-4">
         <span className="text-4xl md:text-5xl font-bold text-white tracking-wider">
           {String(timeLeft[interval]).padStart(2, "0")}
         </span>
@@ -227,7 +227,7 @@ export default function SocialLinks() {
             <motion.div
               animate={{ x: ["-10vw", "10vw", "-10vw"] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="fixed  "
+              className="fixed -z-10 top-0"
             >
               <img src="hooked.png" alt="" />
             </motion.div>
