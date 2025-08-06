@@ -29,7 +29,10 @@ const AIAssistant = () => {
 
   useEffect(() => {
     if (isOpen) {
-      inputRef.current?.focus();
+      // Don't auto-focus on mobile to prevent keyboard from opening
+      if (window.innerWidth > 768) {
+        inputRef.current?.focus();
+      }
     }
   }, [isOpen]);
 
@@ -197,13 +200,24 @@ MY QUESTION IS : ${inputValue.trim()}
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-40 w-96 h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col"
-          >
+          <>
+            {/* Backdrop with blur */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-30 bg-black/20 backdrop-blur-sm"
+              onClick={toggleChat}
+            />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="fixed bottom-24 right-6 z-40 w-96 h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col"
+            >
             <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-t-2xl">
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
@@ -261,7 +275,7 @@ MY QUESTION IS : ${inputValue.trim()}
                   className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-2xl ${
+                    className={`max-w-[80%] p-4 rounded-2xl ${
                       message.sender === "user"
                         ? "bg-gradient-to-r from-orange-500 to-red-600 text-white"
                         : "bg-gray-100 text-gray-800"
@@ -274,7 +288,28 @@ MY QUESTION IS : ${inputValue.trim()}
                         </div>
                       )}
                       <div className="flex-1">
-                        <p className="text-base leading-relaxed">{message.text}</p>
+                        <div className="text-base leading-relaxed whitespace-pre-wrap break-words space-y-1">
+                          {message.text.split('\n').map((line, index) => {
+                            const trimmedLine = line.trim();
+                            const isListItem = trimmedLine.match(/^[-•*]\s/);
+                            const isNumberedItem = trimmedLine.match(/^\d+\.\s/);
+                            
+                            return (
+                              <React.Fragment key={index}>
+                                {isListItem || isNumberedItem ? (
+                                  <div className="flex items-start space-x-2 mb-1">
+                                    <span className="text-orange-500 mt-1">
+                                      {isListItem ? '•' : `${trimmedLine.match(/^\d+/)[0]}.`}
+                                    </span>
+                                    <span className="flex-1">{trimmedLine.replace(/^[-•*]\s|^\d+\.\s/, '')}</span>
+                                  </div>
+                                ) : (
+                                  <span className={trimmedLine ? 'block' : 'block h-2'}>{line}</span>
+                                )}
+                              </React.Fragment>
+                            );
+                          })}
+                        </div>
                         <p className="text-sm opacity-70 mt-1">
                           {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </p>
@@ -349,6 +384,7 @@ MY QUESTION IS : ${inputValue.trim()}
               </div>
             </div>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
