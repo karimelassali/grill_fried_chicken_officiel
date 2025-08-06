@@ -8,6 +8,7 @@ import {
   MapPin,
   ExternalLink,
 } from "lucide-react";
+import AIAssistant from "./ai_assistant";
 
 // Helper function to calculate time left
 const calculateTimeLeft = (targetDate) => {
@@ -373,6 +374,9 @@ export default function SocialLinks() {
           </p>
         </motion.div>
       </motion.div>
+      
+      {/* AI Assistant */}
+      <AIAssistant />
     </div>
   );
 }
