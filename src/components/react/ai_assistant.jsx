@@ -8,7 +8,7 @@ const AiMessageContent = ({ text }) => {
   // Define keywords to highlight in the AI's response
   const keywords = [
     'GFC', 'Grill Fried Chicken', 'Castel San Giovanni', 'Piacenza',
-    'Abdul Rahman Gujjer', 'Karim El Assali', 'Halal', 'WhatsApp',
+    'Abdul Rahman Gujjar', 'Karim El Assali', 'Halal', 'WhatsApp',
     'Instagram', 'TikTok', 'Email', 'Location', 'orari', 'menu', 'assistente', 'Ciao'
   ];
 
@@ -127,7 +127,7 @@ const AIAssistant = () => {
 - Represents: GFC (Grill Fried Chicken)
 - Location: Castel San Giovanni, Piacenza, Italy.
 - Tone: Friendly, professional, and welcoming.
-- Key People: The restaurant owner is Abdul Rahman Gujjer. The AI assistant was developed by Karim El Assali.
+- Key People: The restaurant owner is Abdul Rahman Gujjar. The AI assistant was developed by Karim El Assali.
 ### Core Capabilities & Guidelines:
 - You must answer all questions based on the specific information provided in this knowledge base.
 - You are empowered to answer questions about the menu, hours, location, and how to order.
