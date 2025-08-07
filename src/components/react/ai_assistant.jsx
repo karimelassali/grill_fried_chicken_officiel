@@ -224,7 +224,12 @@ ${inputValue.trim()}`;
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed bottom-24 right-6 z-40 w-[24rem] h-[60vh] max-h-[700px] min-h-[400px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col"
+              style={{
+                backgroundImage:'url("premuim_logo.avif")',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+              className="fixed bottom-24 right-6 z-40 w-[24rem] h-[60vh] max-h-[700px] min-h-[400px]  rounded-2xl shadow-2xl border border-gray-200 flex flex-col"
             >
               <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-t-2xl flex-shrink-0">
                 <div className="flex items-center space-x-3">
@@ -255,7 +260,7 @@ ${inputValue.trim()}`;
                     {message.sender === "ai" && ( <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0"> <Bot size={16} className="text-white" /> </div> )}
                     <div className="flex flex-col gap-1 w-full max-w-[80%]">
                         <div className={`flex items-center space-x-2 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                           <p className={`text-sm ${message.sender === 'user' ? 'text-gray-500' : 'text-gray-500 font-semibold'}`}>{message.sender === 'user' ? 'Tu' : 'GFC Assistant'}</p>
+                           <p className={`text-sm ${message.sender === 'user' ? 'text-white' : 'text-gray-100 font-semibold'}`}>{message.sender === 'user' ? 'Tu' : 'GFC Assistant'}</p>
                         </div>
                         <div className={`p-3 rounded-2xl ${ message.sender === "user" ? "bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-br-none" : "bg-gray-100 text-gray-800 rounded-bl-none" }`}>
                             <div className="text-base leading-relaxed break-words">
