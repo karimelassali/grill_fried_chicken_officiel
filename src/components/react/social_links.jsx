@@ -9,6 +9,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import AIAssistant from "./ai_assistant";
+import LightRays from "./ui/light_rays";
 
 // Helper function to calculate time left
 const calculateTimeLeft = (targetDate) => {
@@ -49,7 +50,10 @@ const Countdown = ({ date }) => {
     }
 
     timerComponents.push(
-      <div key={interval} className="flex backdrop-blur-md rounded p-2 flex-col items-center mx-2 md:mx-4">
+      <div
+        key={interval}
+        className="flex backdrop-blur-md rounded p-2 flex-col items-center mx-2 md:mx-4"
+      >
         <span className="text-4xl md:text-5xl font-bold text-white tracking-wider">
           {String(timeLeft[interval]).padStart(2, "0")}
         </span>
@@ -146,6 +150,21 @@ export default function SocialLinks() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-black relative overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none" >
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ffff00"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="custom-rays"
+        />
+      </div>
+
       {/* Animated Food Elements Background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Floating Burgers */}
@@ -225,13 +244,13 @@ export default function SocialLinks() {
       >
         {/* Professional Header with Your Logo Style */}
         <motion.div variants={itemVariants} className="text-center mb-12">
-            <motion.div
-              animate={{ x: ["-10vw", "10vw", "-10vw"] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="fixed -z-10 top-0"
-            >
-              <img src="hooked.png" alt="" />
-            </motion.div>
+          <motion.div
+            animate={{ x: ["-10vw", "10vw", "-10vw"] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="fixed -z-10 top-0"
+          >
+            <img src="hooked.png" alt="" />
+          </motion.div>
           {/* Logo Container with Premium Shine Effects */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -261,7 +280,11 @@ export default function SocialLinks() {
                 className="relative w-full h-full z-10 object-cover"
                 alt="GFC Logo"
                 src="/premuim_logo.avif"
-                onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/320x320/000000/FFFFFF?text=GFC+Logo'; }}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src =
+                    "https://placehold.co/320x320/000000/FFFFFF?text=GFC+Logo";
+                }}
               />
             </div>
           </motion.div>
@@ -275,11 +298,14 @@ export default function SocialLinks() {
           </motion.h1>
 
           {/* Opening Soon & Countdown */}
-          <motion.p variants={itemVariants} className="text-xl font-semibold text-yellow-500 my-2">
+          <motion.p
+            variants={itemVariants}
+            className="text-xl font-semibold text-yellow-500 my-2"
+          >
             We're Opening Soon!
           </motion.p>
           <motion.div variants={itemVariants}>
-             <Countdown date={"2025-09-15T00:00:00"} />
+            <Countdown date={"2025-09-15T00:00:00"} />
           </motion.div>
 
           {/* Professional Halal Badge */}
@@ -374,7 +400,7 @@ export default function SocialLinks() {
           </p>
         </motion.div>
       </motion.div>
-      
+
       {/* AI Assistant */}
       <AIAssistant />
     </div>
