@@ -297,6 +297,7 @@ export default function SocialLinks() {
             GRILL FRIED CHICKEN
           </motion.h1>
 
+
           {/* Opening Soon & Countdown */}
           <motion.p
             variants={itemVariants}
