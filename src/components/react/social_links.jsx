@@ -94,8 +94,8 @@ export default function SocialLinks() {
     {
       id: "instagram",
       title: "Instagram",
-      subtitle: "@grillfriedchicken",
-      href: "https://instagram.com/grillfriedchicken",
+      subtitle: "@nawabikhana",
+      href: "https://instagram.com/nawabikhana",
       icon: Instagram,
       color: "border-pink-500 hover:bg-pink-50 hover:border-pink-600",
       iconColor: "text-pink-600",
@@ -104,8 +104,8 @@ export default function SocialLinks() {
     {
       id: "tiktok",
       title: "TikTok",
-      subtitle: "@grillfriedchicken",
-      href: "https://tiktok.com/@grillfriedchicken",
+      subtitle: "@nawabikhana",
+      href: "https://tiktok.com/@nawabikhana",
       icon: Video,
       color: "border-gray-800 hover:bg-gray-50 hover:border-gray-900",
       iconColor: "text-gray-800",
@@ -114,8 +114,8 @@ export default function SocialLinks() {
     {
       id: "email",
       title: "Email",
-      subtitle: "grillfriedchicken@gmail.com",
-      href: "mailto:grillfriedchicken@gmail.com",
+      subtitle: "nawabikhana@gmail.com",
+      href: "mailto:nawabikhana@gmail.com",
       icon: Mail,
       color: "border-red-500 hover:bg-red-50 hover:border-red-600",
       iconColor: "text-red-600",
@@ -328,12 +328,12 @@ export default function SocialLinks() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
                 className="relative w-full h-full z-10 object-cover"
-                alt="GFC Logo"
+                alt="Nawabi Khana Logo"
                 src="/premuim_logo.png"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
-                    "https://placehold.co/320x320/000000/FFFFFF?text=GFC+Logo";
+                    "https://placehold.co/320x320/000000/FFFFFF?text=Nawabi+Khana+Logo";
                 }}
               />
             </div>

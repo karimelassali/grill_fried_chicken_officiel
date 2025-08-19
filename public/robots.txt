@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
 
-Sitemap: https://trygfc.vercel.app/sitemap.xml
+Sitemap: https://nawabi-khana.vercel.app/sitemap.xml

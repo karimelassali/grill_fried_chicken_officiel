@@ -1,10 +1,10 @@
-# Astro Starter Kit: Basics
+# Nawabi Khana - Restaurant Landing Page
 
-```sh
-npm create astro@latest -- --template basics
-```
+A modern, spicy-themed landing page for Nawabi Khana restaurant built with Astro and React.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🌶️ About
+
+Nawabi Khana is a halal-certified fast food restaurant specializing in spicy burgers and fried chicken. This landing page showcases our upcoming opening with a countdown timer, contact information, and social media links.
 
 ## 🚀 Project Structure
 
@@ -13,20 +13,34 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── background.jpeg
+│   ├── bg.mp4
+│   ├── favicon.svg
+│   ├── hooked.png
+│   ├── premuim_logo.png
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+│   ├── assets/
+│   │   ├── astro.svg
+│   │   └── background.svg
+│   ├── components/
+│   │   ├── links.astro
+│   │   └── react/
+│   │       ├── ai_assistant.jsx
+│   │       ├── fadeIn.jsx
+│   │       ├── social_links.jsx
+│   │       └── ui/
+│   │           ├── light_rays.jsx
+│   │           └── shiny_text.jsx
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -41,7 +55,36 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 🎨 Features
+
+- **Full-screen spicy background** with animated elements
+- **Interactive countdown timer** to restaurant opening
+- **Social media integration** (WhatsApp, Instagram, TikTok, Email, Location)
+- **Responsive design** optimized for all devices
+- **Smooth animations** using Framer Motion
+- **SEO optimized** with proper meta tags and structured data
+- **Halal certification** prominently displayed
+
+## 🔥 Tech Stack
+
+- **Astro** - Static site generator
+- **React** - Interactive components
+- **Tailwind CSS** - Styling
+- **Framer Motion** - Animations
+- **Lucide React** - Icons
+
+## 📱 Contact & Social Media
+
+- **WhatsApp**: +39 3510505298
+- **Instagram**: @nawabikhana
+- **TikTok**: @nawabikhana
+- **Email**: nawabikhana@gmail.com
+- **Location**: Corso Giacomo Matteotti, 44, Castel San Giovanni, Italy
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# grill_fried_chicken_officiel
+
+---
+
+© 2025 NAWABI KHANA RESTAURANT - 🌶️ Spicing up your taste buds since 2025 🔥
