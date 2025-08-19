@@ -7,8 +7,10 @@ import {
   Mail,
   MapPin,
   ExternalLink,
+  Flame,
+  Star,
 } from "lucide-react";
-import AIAssistant from "./ai_assistant";
+// import AIAssistant from "./ai_assistant";
 import LightRays from "./ui/light_rays";
 
 // Helper function to calculate time left
@@ -50,20 +52,21 @@ const Countdown = ({ date }) => {
     }
 
     timerComponents.push(
-      <div
+      <motion.div
         key={interval}
-        className="flex backdrop-blur-md rounded p-2 flex-col items-center mx-2 md:mx-4"
+        whileHover={{ scale: 1.05, y: -5 }}
+        className="flex backdrop-blur-md rounded-xl p-3 flex-col items-center mx-2 md:mx-4 bg-gradient-to-b from-red-900/80 to-orange-800/80 border border-red-500/30 shadow-lg"
       >
-        <span className="text-4xl md:text-5xl font-bold text-white tracking-wider">
+        <span className="text-4xl md:text-5xl font-black text-white tracking-wider drop-shadow-lg">
           {String(timeLeft[interval]).padStart(2, "0")}
         </span>
-        <span className="text-xs uppercase text-gray-400 mt-1">{interval}</span>
-      </div>
+        <span className="text-xs uppercase text-orange-200 mt-1 font-semibold">{interval}</span>
+      </motion.div>
     );
   });
 
   return (
-    <div className="flex justify-center my-6">
+    <div className="flex justify-center my-8">
       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
     </div>
   );
@@ -84,8 +87,9 @@ export default function SocialLinks() {
       subtitle: "Order directly",
       href: "https://wa.me/3510505298",
       icon: MessageCircle,
-      color: "border-green-500 hover:bg-green-50",
+      color: "border-green-500 hover:bg-green-50 hover:border-green-600",
       iconColor: "text-green-600",
+      bgGradient: "from-green-500/10 to-green-600/10",
     },
     {
       id: "instagram",
@@ -93,8 +97,9 @@ export default function SocialLinks() {
       subtitle: "@grillfriedchicken",
       href: "https://instagram.com/grillfriedchicken",
       icon: Instagram,
-      color: "border-pink-500 hover:bg-pink-50",
+      color: "border-pink-500 hover:bg-pink-50 hover:border-pink-600",
       iconColor: "text-pink-600",
+      bgGradient: "from-pink-500/10 to-purple-600/10",
     },
     {
       id: "tiktok",
@@ -102,8 +107,9 @@ export default function SocialLinks() {
       subtitle: "@grillfriedchicken",
       href: "https://tiktok.com/@grillfriedchicken",
       icon: Video,
-      color: "border-gray-800 hover:bg-gray-50",
+      color: "border-gray-800 hover:bg-gray-50 hover:border-gray-900",
       iconColor: "text-gray-800",
+      bgGradient: "from-gray-800/10 to-black/10",
     },
     {
       id: "email",
@@ -111,8 +117,9 @@ export default function SocialLinks() {
       subtitle: "grillfriedchicken@gmail.com",
       href: "mailto:grillfriedchicken@gmail.com",
       icon: Mail,
-      color: "border-red-500 hover:bg-red-50",
+      color: "border-red-500 hover:bg-red-50 hover:border-red-600",
       iconColor: "text-red-600",
+      bgGradient: "from-red-500/10 to-red-600/10",
     },
     {
       id: "location",
@@ -120,8 +127,9 @@ export default function SocialLinks() {
       subtitle: "Find us on Google Maps",
       href: "https://maps.app.goo.gl/Jfa3tceT1iHKbSU88",
       icon: MapPin,
-      color: "border-blue-500 hover:bg-blue-50",
+      color: "border-blue-500 hover:bg-blue-50 hover:border-blue-600",
       iconColor: "text-blue-600",
+      bgGradient: "from-blue-500/10 to-blue-600/10",
     },
   ];
 
@@ -149,11 +157,23 @@ export default function SocialLinks() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-black relative overflow-hidden">
+    <div 
+      style={{
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+      }} 
+      className="min-h-screen w-full relative overflow-hidden"
+    >
+      {/* Full screen overlay for better readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-red-200/40 to-orange-900/30"></div>
+      
+      {/* Enhanced Light Rays */}
       <div className="fixed inset-0 pointer-events-none" >
         <LightRays
           raysOrigin="top-center"
-          raysColor="#ffff00"
+          raysColor="#ff6b35"
           raysSpeed={1.5}
           lightSpread={0.8}
           rayLength={1.2}
@@ -165,9 +185,9 @@ export default function SocialLinks() {
         />
       </div>
 
-      {/* Animated Food Elements Background */}
+      {/* Enhanced Floating Spicy Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Floating Burgers */}
+        {/* Floating Chili Peppers */}
         <motion.div
           animate={{
             x: [0, 100, 0],
@@ -179,9 +199,9 @@ export default function SocialLinks() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-20 left-10 text-6xl opacity-10"
+          className="absolute top-20 left-10 text-6xl opacity-20 drop-shadow-lg"
         >
-          🍔
+          🌶️
         </motion.div>
 
         <motion.div
@@ -196,9 +216,9 @@ export default function SocialLinks() {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute top-40 right-16 text-5xl opacity-10"
+          className="absolute top-40 right-16 text-5xl opacity-20 drop-shadow-lg"
         >
-          🍟
+          🔥
         </motion.div>
 
         <motion.div
@@ -213,7 +233,7 @@ export default function SocialLinks() {
             ease: "easeInOut",
             delay: 4,
           }}
-          className="absolute bottom-32 left-20 text-7xl opacity-10"
+          className="absolute bottom-32 left-20 text-7xl opacity-20 drop-shadow-lg"
         >
           🍗
         </motion.div>
@@ -230,9 +250,44 @@ export default function SocialLinks() {
             ease: "easeInOut",
             delay: 6,
           }}
-          className="absolute bottom-20 right-10 text-5xl opacity-10"
+          className="absolute bottom-20 right-10 text-5xl opacity-20 drop-shadow-lg"
         >
           🥤
+        </motion.div>
+
+        {/* Additional Spicy Elements */}
+        <motion.div
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -30, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 8,
+          }}
+          className="absolute top-60 left-1/4 text-4xl opacity-15 drop-shadow-lg"
+        >
+          🌶️
+        </motion.div>
+
+        <motion.div
+          animate={{
+            x: [0, -50, 0],
+            y: [0, 40, 0],
+            rotate: [0, -8, 0],
+          }}
+          transition={{
+            duration: 28,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 10,
+          }}
+          className="absolute bottom-40 right-1/4 text-6xl opacity-15 drop-shadow-lg"
+        >
+          🔥
         </motion.div>
       </div>
 
@@ -240,38 +295,33 @@ export default function SocialLinks() {
         variants={containerVariants}
         initial="hidden"
         animate={isLoaded ? "visible" : "hidden"}
-        className="relative z-10 max-w-md mx-auto px-6 py-12 flex flex-col items-center justify-center min-h-screen"
+        className="relative z-10 max-w-4xl mx-auto px-6 py-12 flex flex-col items-center justify-center min-h-screen"
       >
-        {/* Professional Header with Your Logo Style */}
+        {/* Enhanced Header with Spicy Theme */}
         <motion.div variants={itemVariants} className="text-center mb-12">
-          <motion.div
-            animate={{ x: ["-10vw", "10vw", "-10vw"] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="fixed -z-10 top-0"
-          >
-            <img src="hooked.png" alt="" />
-          </motion.div>
-          {/* Logo Container with Premium Shine Effects */}
+          {/* Logo Container with Enhanced Spicy Effects */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             className="relative mb-8"
           >
-            {/* Glowing Ring */}
+            {/* Enhanced Glowing Ring with Spicy Colors */}
             <motion.div
               animate={{
                 rotate: 360,
-                opacity: [0.5, 0.8, 0.5],
+                opacity: [0.3, 0.7, 0.3],
+                scale: [1, 1.1, 1],
               }}
               transition={{
                 rotate: { duration: 10, repeat: Infinity, ease: "linear" },
                 opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
               }}
-              className="absolute inset-0 w-80 h-80 mx-auto rounded-full bg-gradient-to-r from-orange-400 via-yellow-500 to-orange-400 blur-sm opacity-30"
+              className="absolute inset-0 w-80 h-80 mx-auto rounded-full bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 blur-sm opacity-40"
             />
 
-            {/* Logo Background Circle with shine */}
-            <div className="relative w-80 h-80 mx-auto bg-black rounded-full flex items-center justify-center shadow-2xl overflow-hidden border-2 border-gray-800">
+            {/* Logo Background Circle with enhanced shine */}
+            <div className="relative w-80 h-80 mx-auto bg-gradient-to-br from-gray-900 to-black rounded-full flex items-center justify-center shadow-2xl overflow-hidden border-2 border-orange-500/50">
               <motion.img
                 fetchPriority="high"
                 initial={{ opacity: 0 }}
@@ -279,7 +329,7 @@ export default function SocialLinks() {
                 transition={{ delay: 0.5 }}
                 className="relative w-full h-full z-10 object-cover"
                 alt="GFC Logo"
-                src="/premuim_logo.avif"
+                src="/premuim_logo.png"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
@@ -289,39 +339,54 @@ export default function SocialLinks() {
             </div>
           </motion.div>
 
-          {/* Brand Name matching your logo typography */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl font-black text-gray-200 mb-2 tracking-tight"
-          >
-            GRILL FRIED CHICKEN
-          </motion.h1>
+          {/* Enhanced Brand Name with Spicy Typography */}
+          <motion.div variants={itemVariants} className="mb-6">
+            <motion.h1
+              className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight drop-shadow-lg"
+            >
+              NAWABI KHANA
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-orange-200 font-semibold tracking-wide"
+              animate={{ 
+                textShadow: [
+                  "0 0 5px rgba(255, 107, 53, 0.5)",
+                  "0 0 20px rgba(255, 107, 53, 0.8)",
+                  "0 0 5px rgba(255, 107, 53, 0.5)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              🌶️ FEEL THE RICH TASTE 🔥
+            </motion.p>
+          </motion.div>
 
-
-          {/* Opening Soon & Countdown */}
-          <motion.p
-            variants={itemVariants}
-            className="text-xl font-semibold text-yellow-500 my-2"
-          >
-            We're Opening Soon!
-          </motion.p>
-          <motion.div variants={itemVariants}>
+          {/* Enhanced Opening Soon & Countdown */}
+          <motion.div variants={itemVariants} className="mb-6">
+            <motion.p
+              className="text-2xl font-bold text-orange-400 mb-4 flex items-center justify-center gap-2"
+            >
+              <Flame className="w-6 h-6 text-red-500" />
+              We're Opening Soon!
+              <Flame className="w-6 h-6 text-red-500" />
+            </motion.p>
             <Countdown date={"2025-09-15T00:00:00"} />
           </motion.div>
 
-          {/* Professional Halal Badge */}
+          {/* Enhanced Halal Badge with Spicy Theme */}
           <motion.div
             variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            className="inline-flex items-center bg-green-800 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg mt-4"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            className="inline-flex items-center bg-gradient-to-r from-green-700 to-green-600 text-white px-8 py-3 rounded-full font-bold text-sm shadow-xl border border-green-400/30"
           >
-            <div className="w-2 h-2 bg-green-300 rounded-full mr-2"></div>
+            <Star className="w-4 h-4 mr-2 text-green-300" />
             HALAL CERTIFIED
+            <Star className="w-4 h-4 ml-2 text-green-300" />
           </motion.div>
         </motion.div>
 
-        {/* Clean, Professional Links */}
-        <motion.div variants={containerVariants} className="w-full space-y-4">
+        {/* Enhanced Links with Better UI/UX */}
+        <motion.div variants={containerVariants} className="w-full max-w-2xl space-y-4">
           {links.map((link) => {
             const IconComponent = link.icon;
             const isHovered = hoveredLink === link.id;
@@ -334,76 +399,99 @@ export default function SocialLinks() {
                 rel="noopener noreferrer"
                 variants={itemVariants}
                 whileHover={{
-                  y: -2,
+                  y: -5,
+                  scale: 1.02,
                   transition: { duration: 0.2 },
                 }}
                 whileTap={{ scale: 0.98 }}
                 onHoverStart={() => setHoveredLink(link.id)}
                 onHoverEnd={() => setHoveredLink(null)}
                 className={`
-                  group relative block w-full p-5 bg-white border-2 rounded-2xl 
-                  shadow-sm hover:shadow-md transition-all duration-300
-                  ${link.color}
+                  group relative block w-full p-6 bg-white/95 backdrop-blur-sm border-2 rounded-2xl 
+                  shadow-lg hover:shadow-2xl transition-all duration-300 transform
+                  ${link.color} ${link.bgGradient}
                 `}
               >
                 <div className="flex items-center">
-                  {/* Clean Icon */}
+                  {/* Enhanced Icon with Hover Effects */}
                   <motion.div
                     animate={{
-                      scale: isHovered ? 1.1 : 1,
-                      rotate: isHovered ? 5 : 0,
+                      scale: isHovered ? 1.15 : 1,
+                      rotate: isHovered ? 8 : 0,
                     }}
                     transition={{ duration: 0.2 }}
                     className={`
-                      w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center mr-4
-                      group-hover:bg-white transition-colors duration-300
+                      w-14 h-14 rounded-xl bg-gradient-to-br from-gray-50 to-white flex items-center justify-center mr-5
+                      group-hover:from-white group-hover:to-gray-50 transition-all duration-300 shadow-md
                     `}
                   >
-                    <IconComponent className={`w-6 h-6 ${link.iconColor}`} />
+                    <IconComponent className={`w-7 h-7 ${link.iconColor}`} />
                   </motion.div>
 
-                  {/* Content */}
+                  {/* Enhanced Content */}
                   <div className="flex-1">
-                    <h2 className="font-bold text-gray-900 text-lg mb-1">
+                    <h2 className="font-bold text-gray-900 text-xl mb-2">
                       {link.title}
                     </h2>
-                    <p className="text-gray-600 text-sm">{link.subtitle}</p>
+                    <p className="text-gray-600 text-sm font-medium">{link.subtitle}</p>
                   </div>
 
-                  {/* Subtle Arrow */}
+                  {/* Enhanced Arrow with Animation */}
                   <motion.div
-                    animate={{ x: isHovered ? 5 : 0 }}
+                    animate={{ 
+                      x: isHovered ? 8 : 0,
+                      scale: isHovered ? 1.1 : 1,
+                    }}
                     transition={{ duration: 0.2 }}
-                    className="text-gray-400"
+                    className="text-gray-400 group-hover:text-gray-600"
                   >
-                    <ExternalLink className="w-5 h-5" />
+                    <ExternalLink className="w-6 h-6" />
                   </motion.div>
                 </div>
+
+                {/* Hover Glow Effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: `linear-gradient(45deg, transparent, ${link.iconColor.replace('text-', '').includes('green') ? 'rgba(34, 197, 94, 0.1)' : 
+                      link.iconColor.replace('text-', '').includes('pink') ? 'rgba(236, 72, 153, 0.1)' :
+                      link.iconColor.replace('text-', '').includes('red') ? 'rgba(239, 68, 68, 0.1)' :
+                      link.iconColor.replace('text-', '').includes('blue') ? 'rgba(59, 130, 246, 0.1)' :
+                      'rgba(107, 114, 128, 0.1)'}, transparent)`,
+                  }}
+                />
               </motion.a>
             );
           })}
         </motion.div>
 
-        {/* Professional Footer */}
+        {/* Enhanced Footer with Spicy Theme */}
         <motion.div
           variants={itemVariants}
-          className="mt-12 pt-8 border-t border-gray-700 text-center"
+          className="mt-16 pt-8 border-t border-orange-500/30 text-center"
         >
-          <div className="flex items-center justify-center mb-2">
-            <div className="w-8 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 mr-3"></div>
-            <div className=" bg-orange-800 text-white px-4 py-1 rounded-full">
-              G F C
-            </div>
-            <div className="w-8 h-0.5 bg-gradient-to-l from-orange-400 to-red-500 ml-3"></div>
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-12 h-1 bg-gradient-to-r from-orange-400 to-red-500 mr-4 rounded-full"></div>
+            <motion.div 
+              className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-2 rounded-full font-bold text-lg shadow-lg"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              N K
+            </motion.div>
+            <div className="w-12 h-1 bg-gradient-to-l from-orange-400 to-red-500 ml-4 rounded-full"></div>
           </div>
-          <p className="text-gray-500 text-sm font-medium">
-            © 2025 Grill Fried Chicken
+          <p className="text-orange-200 text-sm font-semibold">
+            © 2025 NAWABI KHANA RESTAURANT
+          </p>
+          <p className="text-orange-300/70 text-xs mt-2">
+            🌶️ Spicing up your taste buds since 2025 🔥
           </p>
         </motion.div>
       </motion.div>
 
       {/* AI Assistant */}
-      <AIAssistant />
+      {/* <AIAssistant /> */}
     </div>
   );
 }
