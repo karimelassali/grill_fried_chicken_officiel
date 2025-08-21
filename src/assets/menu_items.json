@@ -1,0 +1,435 @@
+{
+    "restaurant_name": "GFC SPICY TOWN",
+    "cuisine": "Indian",
+    "notes": [
+      "HALAL"
+    ],
+    "menu": {
+      "ANTIPASTO": [
+        {
+          "item_number": 1,
+          "name": "ONION RINGS",
+          "description": "Anelli di cipolla fritti con pastella di farina di ceci",
+          "price": {
+            "value": 4.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["cipolla", "pastella di farina di ceci"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 2,
+          "name": "SAMOSA",
+          "description": "Triangoli di pasta sfoglia ripieni con patate e piselli",
+          "price": {
+            "value": 5.00,
+            "currency": "EUR"
+          },
+          "notes": "2 pieces",
+          "ingredients": ["pasta sfoglia", "patate", "piselli"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 3,
+          "name": "SAMOSA CHAT",
+          "description": "Samosa guarnito con ceci, cipolla e insalata verde",
+          "price": {
+            "value": 6.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["samosa", "ceci", "cipolla", "insalata verde"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 4,
+          "name": "PANEER PAKORA",
+          "description": "Formaggio indiano fritto con pastella di farina di ceci",
+          "price": {
+            "value": 6.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["formaggio indiano", "pastella di farina di ceci"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 5,
+          "name": "MIX VEG PAKORA",
+          "description": "Frittelle di verdure miste",
+          "price": {
+            "value": 5.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["verdure miste", "pastella di farina di ceci"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 6,
+          "name": "CHICKEN PAKORA",
+          "description": "Pollo fritto con pastella di farina di ceci",
+          "price": {
+            "value": 6.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo", "pastella di farina di ceci"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 7,
+          "name": "GAMBERI PAKORA",
+          "description": "Gamberi fritti con pastella di farina di ceci",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["gamberi", "pastella di farina di ceci"],
+          "is_vegetarian": false,
+          "contains_seafood": ["prawns"]
+        },
+        {
+          "item_number": 8,
+          "name": "FISH PAKORA",
+          "description": "Pesce di stagione fritto con pastella di farina di ceci",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pesce di stagione", "pastella di farina di ceci"],
+          "is_vegetarian": false,
+          "contains_seafood": ["fish"]
+        },
+        {
+          "item_number": 9,
+          "name": "ANTIPASTO MISTO",
+          "description": "Paneer pakora, samosa, mix veg pakora",
+          "price": {
+            "value": 7.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["paneer pakora", "samosa", "mix veg pakora"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 11,
+          "name": "SAMOSA DI CARNE",
+          "description": "Fagottini speziati farcit con carne macinata",
+          "price": {
+            "value": 6.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["carne macinata"],
+          "is_vegetarian": false,
+          "contains_meat": ["minced meat"]
+        }
+      ],
+      "GRIGLIATA": [
+        {
+          "item_number": 12,
+          "name": "CHICKEN TIKKA",
+          "description": "Bocconcini di pollo speziati cotti in forno tandoor",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 13,
+          "name": "TANDOORI CHICKEN",
+          "description": "Cosce di pollo marinate e cotte in forno tandoor",
+          "price": {
+            "value": 7.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 14,
+          "name": "CHICKEN MALAI TIKKA",
+          "description": "Bocconcini di pollo marinati con salsa a base di yogurt e anacardi",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo", "yogurt", "anacardi"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 15,
+          "name": "CHICKEN SEEKH KEBAB",
+          "description": "Spiedini di pollo macinato e speziato cotti in forno tandoor",
+          "price": {
+            "value": 6.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo macinato"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 16,
+          "name": "LAMB SEEKH KEBAB",
+          "description": "Spiedini di agnello macinato e speziato cotti in forno tandoor",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["agnello macinato"],
+          "is_vegetarian": false,
+          "contains_meat": ["lamb"]
+        },
+        {
+          "item_number": 17,
+          "name": "LAMB TIKKA",
+          "description": "Bocconcini di agnello cotti in forno tandoor",
+          "price": {
+            "value": 12.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["agnello"],
+          "is_vegetarian": false,
+          "contains_meat": ["lamb"]
+        },
+        {
+          "item_number": 18,
+          "name": "PRAWN TIKKA",
+          "description": "Gamberoni speziati cotti in forno tandoor",
+          "price": {
+            "value": 10.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["gamberoni"],
+          "is_vegetarian": false,
+          "contains_seafood": ["prawns"]
+        },
+        {
+          "item_number": 19,
+          "name": "MIX GRILL",
+          "description": "Salmone,gamberi,pollo, seekha kebab lamb tikka, spezie",
+          "price": {
+            "value": 22.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["salmone", "gamberi", "pollo", "seekh kebab", "lamb tikka"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken", "lamb"],
+          "contains_seafood": ["salmon", "prawns"]
+        },
+        {
+          "item_number": 20,
+          "name": "PANEER TIKKA",
+          "description": "formaggio indiano cotto in forno tandoor, peperone e cipolla grigliata",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["formaggio indiano", "peperone", "cipolla"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 21,
+          "name": "MIX VEG PLATTER",
+          "description": "Verdure miste cotte in forno tandoor",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["verdure miste"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 22,
+          "name": "VEG TIKKA",
+          "description": "Cotoletta di verdure miste accompagnate da salsa",
+          "price": {
+            "value": 5.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["verdure miste"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 23,
+          "name": "BEEF TIKKA",
+          "description": "Manzo marinato cotto in forno tandoor",
+          "price": {
+            "value": 10.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["manzo"],
+          "is_vegetarian": false,
+          "contains_meat": ["beef"]
+        }
+      ],
+      "PIATTI_CARNE": [
+        {
+          "item_number": 24,
+          "name": "MUTTON CHOPS",
+          "description": "Costolette di agnello",
+          "price": {
+            "value": 12.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["agnello"],
+          "is_vegetarian": false,
+          "contains_meat": ["lamb"]
+        },
+        {
+          "item_number": 25,
+          "name": "BADAMI KORMA",
+          "description": "Pollo, mandorle e yogurt",
+          "price": {
+            "value": 9.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo", "mandorle", "yogurt"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 26,
+          "name": "CHICKEN TIKKA MASALA",
+          "description": "Bocconcini di pollo cotti in forno tandoor con peperoni cipolla",
+          "price": {
+            "value": 9.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo", "peperoni", "cipolla"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 27,
+          "name": "BUTTER CHICKEN",
+          "description": "Pollo in salsa cremosa al pomodoro e anacardi",
+          "price": {
+            "value": 9.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["pollo", "pomodoro", "anacardi"],
+          "is_vegetarian": false,
+          "contains_meat": ["chicken"]
+        },
+        {
+          "item_number": 40,
+          "name": "KOFTA CURRY",
+          "description": "Polpette di carne di manzo, salsa di verdure, spezie, coriandolo",
+          "price": {
+            "value": 10.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["polpette di manzo", "salsa di verdure"],
+          "is_vegetarian": false,
+          "contains_meat": ["beef"]
+        },
+        {
+          "item_number": 45,
+          "name": "LAMB CURRY",
+          "description": "Agnello in salsa al curry",
+          "price": {
+            "value": 10.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["agnello", "salsa al curry"],
+          "is_vegetarian": false,
+          "contains_meat": ["lamb"]
+        },
+        {
+          "item_number": 49,
+          "name": "QEEMA MATAR",
+          "description": "Carne macinata di manzo, piselli, salsa di verdure e spezie",
+          "price": {
+            "value": 9.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["carne macinata di manzo", "piselli"],
+          "is_vegetarian": false,
+          "contains_meat": ["beef"]
+        }
+      ],
+      "PIATTI_VEGETARIANI": [
+        {
+          "item_number": 50,
+          "name": "PALAK PANEER",
+          "description": "Formaggio indiano con panna di spinaci e spezie",
+          "price": {
+            "value": 8.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["formaggio indiano", "panna di spinaci"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 53,
+          "name": "CHANA MASALA",
+          "description": "Ceci bianchi cotti in salsa speziata al curry",
+          "price": {
+            "value": 7.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["ceci bianchi", "salsa al curry"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 56,
+          "name": "ALOO MATAR",
+          "description": "Patate e piselli",
+          "price": {
+            "value": 7.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["patate", "piselli"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 58,
+          "name": "DAL MAKHANI",
+          "description": "Lenticchie miste con salsa cremosa al burro",
+          "price": {
+            "value": 7.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["lenticchie miste", "burro"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 63,
+          "name": "ALOO TIKKI",
+          "description": "Formaggio indiano, farina di riso, patate, briciole di pane e Piselli",
+          "price": {
+            "value": 5.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["formaggio indiano", "farina di riso", "patate", "briciole di pane", "piselli"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 67,
+          "name": "ALOO GOBHI",
+          "description": "Patate, cavolfiore, curry, spezie, burro, coriandolo",
+          "price": {
+            "value": 6.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["patate", "cavolfiore", "curry"],
+          "is_vegetarian": true
+        },
+        {
+          "item_number": 68,
+          "name": "DAAL TARKA",
+          "description": "Lenticchie con spezie, burro, cipolla, zenzeo",
+          "price": {
+            "value": 7.00,
+            "currency": "EUR"
+          },
+          "ingredients": ["lenticchie", "burro", "cipolla", "zenzero"],
+          "is_vegetarian": true
+        }
+      ]
+    }
+  }

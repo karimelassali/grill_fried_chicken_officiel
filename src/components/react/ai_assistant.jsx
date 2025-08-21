@@ -26,15 +26,26 @@ export default function AIAssistant() {
 
   const restaurantInfo = {
     name: "Nawabi Khana",
-    cuisine: "Authentic Halal Fast Food",
-    specialties: "Spicy burgers, pizzas, and traditional Pakistani cuisine",
+    cuisine: "Authentic Halal Indian Cuisine",
+    specialties: "Traditional Indian dishes, tandoori specialties, authentic curries, and fresh pakoras",
     location: "Castel San Giovanni, Italy",
     phone: "+39 3510505298",
     instagram: "@nawabi_khanaa",
     owner: "Abdulrehman Gujjar",
     opening: "Opening Soon - September 2025",
     halal: "Halal Certified",
-    features: "Premium Quality, Spicy Excellence, Authentic Taste"
+    features: "Premium Quality, Spicy Excellence, Authentic Indian Taste"
+  };
+
+  // Menu information from menu_items.json
+  const menuInfo = {
+    categories: ["ANTIPASTO", "GRIGLIATA", "PIATTI_CARNE", "PIATTI_VEGETARIANI"],
+    antipasto: ["Onion Rings", "Samosa", "Samosa Chat", "Paneer Pakora", "Mix Veg Pakora", "Chicken Pakora", "Gamberi Pakora", "Fish Pakora", "Antipasto Misto", "Samosa di Carne"],
+    grigliata: ["Chicken Tikka", "Tandoori Chicken", "Chicken Malai Tikka", "Chicken Seekh Kebab", "Lamb Seekh Kebab", "Lamb Tikka", "Prawn Tikka", "Mix Grill", "Paneer Tikka", "Mix Veg Platter", "Veg Tikka", "Beef Tikka"],
+    piatti_carne: ["Mutton Chops", "Badami Korma", "Chicken Tikka Masala", "Butter Chicken", "Kofta Curry", "Lamb Curry", "Qeema Matar"],
+    piatti_vegetariani: ["Palak Paneer", "Chana Masala", "Aloo Matar", "Dal Makhani", "Aloo Tikki", "Aloo Gobhi", "Daal Tarka"],
+    price_range: "€4.00 - €22.00",
+    highlights: ["Tandoori specialties", "Authentic curries", "Vegetarian options", "Fresh ingredients", "Traditional recipes"]
   };
 
   // Array of words to highlight in orange color
@@ -49,9 +60,13 @@ export default function AIAssistant() {
     "whatsapp", "wa.me",
     "email", "mail", "nawabikhana@gmail.com",
     "halal", "certified", "certification", "muslim", "islamic",
-    "menu", "food", "burger", "pizza", "chicken", "pakistani", "cuisine",
+    "menu", "food", "indian", "cuisine", "tandoori", "curry",
     "spicy", "hot", "flavor", "taste", "authentic",
-    "september", "2025", "opening soon", "grand opening"
+    "september", "2025", "opening soon", "grand opening",
+    // Menu items
+    "antipasto", "grigliata", "piatti carne", "piatti vegetariani",
+    "samosa", "pakora", "tikka", "kebab", "korma", "masala", "butter chicken",
+    "paneer", "dal", "aloo", "chana", "palak", "gobhi"
   ];
 
   const messagesEndRef = useRef(null);
@@ -87,7 +102,7 @@ export default function AIAssistant() {
       {
         id: 1,
         type: "bot",
-        content: "👋 **Welcome to Nawabi Khana!** 🌶️\n\n🍔 Authentic Pakistani Fast Food in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
+        content: "👋 **Welcome to Nawabi Khana!** 🌶️\n\n🍽️ Authentic Indian Cuisine in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
         timestamp: new Date(),
       },
     ]);
@@ -114,9 +129,18 @@ Restaurant Information:
 - Halal: ${restaurantInfo.halal}
 - Features: ${restaurantInfo.features}
 
+Menu Information:
+- Categories: ${menuInfo.categories.join(', ')}
+- Antipasto: ${menuInfo.antipasto.join(', ')}
+- Grigliata (Tandoori): ${menuInfo.grigliata.join(', ')}
+- Piatti Carne (Meat Dishes): ${menuInfo.piatti_carne.join(', ')}
+- Piatti Vegetariani (Vegetarian): ${menuInfo.piatti_vegetariani.join(', ')}
+- Price Range: ${menuInfo.price_range}
+- Highlights: ${menuInfo.highlights.join(', ')}
+
 User Question: ${userMessage}
 
-IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to the point. Use emojis sparingly. Focus on answering the specific question asked. Don't repeat information unless necessary.`;
+IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to the point. Use emojis sparingly. Focus on answering the specific question asked. Don't repeat information unless necessary. Use the actual menu items when discussing food.`;
 
       const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`, {
         method: 'GET',
@@ -155,7 +179,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
     const lowerMessage = userMessage.toLowerCase();
     
     if (lowerMessage.includes('menu') || lowerMessage.includes('food') || lowerMessage.includes('dish')) {
-      return "🍔 **Menu:** Spicy burgers, fried chicken, pizzas, traditional Pakistani dishes. All Halal certified! 📞 +39 3510505298";
+      return "🍽️ **Menu:** Antipasto (Samosa, Pakora), Grigliata (Chicken Tikka, Tandoori), Piatti Carne (Butter Chicken, Korma), Piatti Vegetariani (Paneer, Dal). Price: €4-22. All Halal! 📞 +39 3510505298";
     } else if (lowerMessage.includes('location') || lowerMessage.includes('address') || lowerMessage.includes('where')) {
       return "📍 **Location:** Corso Giacomo Matteotti, 44, Castel San Giovanni, Italy. Opening September 2025! 🗺️";
     } else if (lowerMessage.includes('hours') || lowerMessage.includes('open') || lowerMessage.includes('time')) {
@@ -167,11 +191,11 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
     } else if (lowerMessage.includes('instagram') || lowerMessage.includes('social')) {
       return "📱 **Social:** Instagram @nawabi_khanaa | TikTok @nawabikhana | WhatsApp +39 3510505298";
     } else if (lowerMessage.includes('owner') || lowerMessage.includes('who owns') || lowerMessage.includes('founder')) {
-      return "👨‍🍳 **Owner:** Abdulrehman Gujjar - Dedicated to serving authentic Pakistani cuisine in Castel San Giovanni! 🌶️";
+      return "👨‍🍳 **Owner:** Abdulrehman Gujjar - Dedicated to serving authentic Indian cuisine in Castel San Giovanni! 🌶️";
     } else if (lowerMessage.includes('developer') || lowerMessage.includes('who made') || lowerMessage.includes('built')) {
       return "💻 **Developer:** Karim El Assali - Created this website and AI assistant for Nawabi Khana! 🚀";
     } else {
-      return "👋 **Nawabi Khana** - Authentic Pakistani fast food in Castel San Giovanni, Italy. Opening September 2025! Ask about menu, location, hours, or contact info! 🌶️";
+      return "👋 **Nawabi Khana** - Authentic Indian cuisine in Castel San Giovanni, Italy. Opening September 2025! Ask about menu, location, hours, or contact info! 🌶️";
     }
   };
 

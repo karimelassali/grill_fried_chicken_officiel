@@ -21,7 +21,6 @@ const BrandName = () => {
         <motion.div
           className="absolute inset-0 rounded-lg"
           style={{
-            background: 'linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24)',
             filter: 'blur(8px)',
             opacity: 0.3,
           }}
@@ -34,7 +33,7 @@ const BrandName = () => {
       
       {/* Professional tagline with refined styling */}
       <motion.div 
-        className="mb-4 backdrop-blur-md rounded-3xl p-2 flex justify-center flex-col items-center"
+        className="mb-4 backdrop-blur-md  rounded-3xl p-2 flex justify-center flex-col items-center"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
