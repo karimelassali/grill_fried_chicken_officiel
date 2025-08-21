@@ -13,8 +13,7 @@ const BrandName = () => {
         {/* Main text with white color and gold border effect */}
         <span className="relative z-10 text-white">
           <span className="relative">
-            NAWABI KHANA
-            
+            <span className="font-serif font-bold tracking-wider">NAWABI KHANA</span>
           </span>
         </span>
         
@@ -41,9 +40,9 @@ const BrandName = () => {
         transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
       >
         <motion.p 
-          className="text-lg md:text-2xl font-bold text-amber-200 mb-2 tracking-wide drop-shadow-lg text-center"
+          className="text-lg md:text-2xl text-gray-300 font-bold text-amber-200 mb-2 tracking-wide drop-shadow-lg text-center"
         >
-          🌶️ FEEL THE RICH TASTE 🔥
+          FEEL THE RICH TASTE 🔥🌶️ 
         </motion.p>
         
         {/* Enhanced subtitle with professional typography */}
@@ -53,11 +52,11 @@ const BrandName = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <span className="text-amber-300 font-semibold">Authentic Halal Fast Food</span> 
+          <span className="text-white font-semibold">Authentic Halal Fast Food</span> 
           <span className="text-white mx-2 md:mx-3">•</span> 
-          <span className="text-amber-300 font-semibold">Premium Quality</span> 
+          <span className="text-white font-semibold">Premium Quality</span> 
           <span className="text-white mx-2 md:mx-3">•</span> 
-          <span className="text-amber-300 font-semibold">Spicy Excellence</span>
+          <span className="text-white font-semibold">Spicy Excellence</span>
         </motion.p>
       </motion.div>
     </motion.div>

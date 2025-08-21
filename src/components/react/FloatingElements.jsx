@@ -16,7 +16,7 @@ const FloatingElements = () => {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-20 left-10 text-6xl opacity-20 drop-shadow-lg"
+        className="absolute top-20 left-6 sm:left-10 text-4xl sm:text-6xl opacity-20 drop-shadow-lg"
       >
         🌶️
       </motion.div>
@@ -33,7 +33,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 2,
         }}
-        className="absolute top-40 right-16 text-5xl opacity-20 drop-shadow-lg"
+        className="absolute top-40 right-8 sm:right-16 text-3xl sm:text-5xl opacity-20 drop-shadow-lg"
       >
         🔥
       </motion.div>
@@ -50,7 +50,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 4,
         }}
-        className="absolute bottom-32 left-20 text-7xl opacity-20 drop-shadow-lg"
+        className="absolute bottom-32 left-12 sm:left-20 text-5xl sm:text-7xl opacity-20 drop-shadow-lg"
       >
         🍗
       </motion.div>
@@ -67,7 +67,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 6,
         }}
-        className="absolute bottom-20 right-10 text-5xl opacity-20 drop-shadow-lg"
+        className="absolute bottom-20 right-6 sm:right-10 text-3xl sm:text-5xl opacity-20 drop-shadow-lg"
       >
         🥤
       </motion.div>
@@ -85,7 +85,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 8,
         }}
-        className="absolute top-60 left-1/4 text-4xl opacity-15 drop-shadow-lg"
+        className="absolute top-60 left-1/4 text-2xl sm:text-4xl opacity-15 drop-shadow-lg"
       >
         🌶️
       </motion.div>
@@ -102,7 +102,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 10,
         }}
-        className="absolute bottom-40 right-1/4 text-6xl opacity-15 drop-shadow-lg"
+        className="absolute bottom-40 right-1/4 text-4xl sm:text-6xl opacity-15 drop-shadow-lg"
       >
         🔥
       </motion.div>
@@ -120,7 +120,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 3,
         }}
-        className="absolute top-32 right-1/3 text-5xl opacity-20 drop-shadow-lg"
+        className="absolute top-32 right-1/3 text-3xl sm:text-5xl opacity-20 drop-shadow-lg"
       >
         🍔
       </motion.div>
@@ -137,7 +137,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 5,
         }}
-        className="absolute bottom-60 left-1/3 text-4xl opacity-20 drop-shadow-lg"
+        className="absolute bottom-60 left-1/3 text-2xl sm:text-4xl opacity-20 drop-shadow-lg"
       >
         🥤
       </motion.div>
@@ -154,7 +154,7 @@ const FloatingElements = () => {
           ease: "easeInOut",
           delay: 7,
         }}
-        className="absolute top-80 right-20 text-6xl opacity-15 drop-shadow-lg"
+        className="absolute top-80 right-12 sm:right-20 text-4xl sm:text-6xl opacity-15 drop-shadow-lg"
       >
         🍟
       </motion.div>

@@ -131,7 +131,7 @@ export default function SocialLinks() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute top-20 right-20 text-6xl opacity-20 drop-shadow-lg"
+            className="absolute top-20 right-10 sm:right-20 text-4xl sm:text-6xl opacity-20 drop-shadow-lg"
           >
             🍔
           </motion.div>
@@ -149,7 +149,7 @@ export default function SocialLinks() {
               ease: "easeInOut",
               delay: 2,
             }}
-            className="absolute top-40 left-16 text-5xl opacity-20 drop-shadow-lg"
+            className="absolute top-40 left-8 sm:left-16 text-3xl sm:text-5xl opacity-20 drop-shadow-lg"
           >
             🍕
           </motion.div>
@@ -167,7 +167,7 @@ export default function SocialLinks() {
               ease: "easeInOut",
               delay: 4,
             }}
-            className="absolute bottom-40 right-32 text-4xl opacity-20 drop-shadow-lg"
+            className="absolute bottom-40 right-20 sm:right-32 text-2xl sm:text-4xl opacity-20 drop-shadow-lg"
           >
             🍟
           </motion.div>
@@ -185,7 +185,7 @@ export default function SocialLinks() {
               ease: "easeInOut",
               delay: 6,
             }}
-            className="absolute bottom-20 left-32 text-5xl opacity-20 drop-shadow-lg"
+            className="absolute bottom-20 left-20 sm:left-32 text-3xl sm:text-5xl opacity-20 drop-shadow-lg"
           >
             🌭
           </motion.div>
@@ -203,7 +203,7 @@ export default function SocialLinks() {
               ease: "easeInOut",
               delay: 1,
             }}
-            className="absolute top-60 left-1/3 text-4xl opacity-20 drop-shadow-lg"
+            className="absolute top-60 left-1/4 text-2xl sm:text-4xl opacity-20 drop-shadow-lg"
           >
             🌶️
           </motion.div>
@@ -220,7 +220,7 @@ export default function SocialLinks() {
               ease: "easeInOut",
               delay: 3,
             }}
-            className="absolute bottom-60 right-1/4 text-6xl opacity-20 drop-shadow-lg"
+            className="absolute bottom-60 right-1/4 text-4xl sm:text-6xl opacity-20 drop-shadow-lg"
           >
             🔥
           </motion.div>
@@ -238,7 +238,7 @@ export default function SocialLinks() {
               ease: "easeInOut",
               delay: 5,
             }}
-            className="absolute top-80 right-1/3 text-3xl opacity-20 drop-shadow-lg"
+            className="absolute top-80 right-1/3 text-2xl sm:text-3xl opacity-20 drop-shadow-lg"
           >
             🥤
           </motion.div>
@@ -255,7 +255,7 @@ export default function SocialLinks() {
               ease: "easeInOut",
               delay: 7,
             }}
-            className="absolute top-32 left-1/4 text-4xl opacity-20 drop-shadow-lg"
+            className="absolute top-32 left-1/4 text-2xl sm:text-4xl opacity-20 drop-shadow-lg"
           >
             🧃
           </motion.div>

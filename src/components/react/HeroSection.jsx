@@ -61,6 +61,61 @@ const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants,
         />
       </div>
 
+      {/* Menara (Mughal Domes) Design Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Large Central Dome */}
+        <motion.div
+          animate={{
+            opacity: [0.1, 0.2, 0.1],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
+        >
+          <div className="w-full h-full bg-gradient-to-b from-amber-400/30 to-orange-600/30 rounded-full border-2 border-amber-500/40 shadow-2xl"></div>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-amber-500/50 rounded-full"></div>
+        </motion.div>
+        
+        {/* Left Dome */}
+        <motion.div
+          animate={{
+            opacity: [0.08, 0.15, 0.08],
+            scale: [1, 1.03, 1],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute top-1/4 left-1/4 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+        >
+          <div className="w-full h-full bg-gradient-to-b from-red-500/30 to-red-700/30 rounded-full border-2 border-red-500/40 shadow-xl"></div>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-red-500/50 rounded-full"></div>
+        </motion.div>
+        
+        {/* Right Dome */}
+        <motion.div
+          animate={{
+            opacity: [0.08, 0.15, 0.08],
+            scale: [1, 1.03, 1],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          className="absolute top-1/4 right-1/4 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+        >
+          <div className="w-full h-full bg-gradient-to-b from-red-500/30 to-red-700/30 rounded-full border-2 border-red-500/40 shadow-xl"></div>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-red-500/50 rounded-full"></div>
+        </motion.div>
+        
+        {/* Small Right Dome */}
+        <motion.div
+          animate={{
+            opacity: [0.06, 0.12, 0.06],
+            scale: [1, 1.02, 1],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-1/3 right-1/6 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+        >
+          <div className="w-full h-full bg-gradient-to-b from-red-500/30 to-red-700/30 rounded-full border-2 border-red-500/40 shadow-lg"></div>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-red-500/50 rounded-full"></div>
+        </motion.div>
+      </div>
+
       {/* Floating Elements */}
       <FloatingElements />
 
@@ -71,17 +126,20 @@ const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants,
         animate={isLoaded ? "visible" : "hidden"}
         className="relative z-10 w-full px-4 md:px-6 py-4 md:py-8 flex flex-col items-center justify-center min-h-screen"
       >
-        {/* Logo */}
-        <Logo />
-        
-        {/* Brand Name */}
-        <BrandName />
-        
-        {/* Opening Soon Section */}
-        <OpeningSoon />
-        
-        {/* Halal Badge */}
-        <HalalBadge />
+        {/* Container with max-width for large screens */}
+        <div className="w-full max-w-6xl mx-auto flex flex-col items-center justify-center">
+          {/* Logo */}
+          <Logo />
+          
+          {/* Brand Name */}
+          <BrandName />
+          
+          {/* Opening Soon Section */}
+          <OpeningSoon />
+          
+          {/* Halal Badge */}
+          <HalalBadge />
+        </div>
       </motion.div>
     </div>
   );

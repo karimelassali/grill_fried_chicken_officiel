@@ -15,7 +15,6 @@ export default function AIAssistant() {
     - Always use the correct Instagram account: @nawabi_khanaa
     - Always use the correct phone number: +39 3510505298
     - The restaurant owner is: Abdulrehman Gujjar
-    - The developer is: Karim El Assali
     - Restaurant is located in: Castel San Giovanni, Italy
     - Opening date: September 2025
     - Always mention that the restaurant is Halal certified
@@ -33,16 +32,49 @@ export default function AIAssistant() {
     phone: "+39 3510505298",
     instagram: "@nawabi_khanaa",
     owner: "Abdulrehman Gujjar",
-    developer: "Karim El Assali",
     opening: "Opening Soon - September 2025",
     halal: "Halal Certified",
     features: "Premium Quality, Spicy Excellence, Authentic Taste"
   };
 
+  // Array of words to highlight in orange color
+  const highlightedWords = [
+    "hours", "opening", "time", "schedule", "when", "available",
+    "location", "address", "where", "place", "city", "street", "italy", "castel san giovanni",
+    "owner", "abdulrehman", "gujjar", "founder",
+    "developer", "karim", "el assali", "programmer",
+    "phone", "call", "contact", "number", "+39", "3510505298",
+    "instagram", "social", "media", "@nawabi_khanaa",
+    "tiktok", "@nawabikhana",
+    "whatsapp", "wa.me",
+    "email", "mail", "nawabikhana@gmail.com",
+    "halal", "certified", "certification", "muslim", "islamic",
+    "menu", "food", "burger", "pizza", "chicken", "pakistani", "cuisine",
+    "spicy", "hot", "flavor", "taste", "authentic",
+    "september", "2025", "opening soon", "grand opening"
+  ];
+
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Function to highlight words in the response
+  const highlightWords = (text) => {
+    if (!text) return text;
+    
+    let highlightedText = text;
+    
+    // Sort highlighted words by length (longest first) to avoid partial matches
+    const sortedWords = [...highlightedWords].sort((a, b) => b.length - a.length);
+    
+    sortedWords.forEach(word => {
+      const regex = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
+      highlightedText = highlightedText.replace(regex, (match) => `<span class="text-orange-500 font-semibold">${match}</span>`);
+    });
+    
+    return highlightedText;
   };
 
   useEffect(() => {
@@ -55,7 +87,7 @@ export default function AIAssistant() {
       {
         id: 1,
         type: "bot",
-        content: "👋 Welcome to Nawabi Khana! I'm your AI assistant. Ask me anything about our restaurant, menu, location, or opening hours! 🌶️",
+        content: "👋 **Welcome to Nawabi Khana!** 🌶️\n\n🍔 Authentic Pakistani Fast Food in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
         timestamp: new Date(),
       },
     ]);
@@ -78,14 +110,13 @@ Restaurant Information:
 - Phone: ${restaurantInfo.phone}
 - Instagram: ${restaurantInfo.instagram}
 - Owner: ${restaurantInfo.owner}
-- Developer: ${restaurantInfo.developer}
 - Opening: ${restaurantInfo.opening}
 - Halal: ${restaurantInfo.halal}
 - Features: ${restaurantInfo.features}
 
 User Question: ${userMessage}
 
-Please provide a helpful, informative response about Nawabi Khana restaurant. Be friendly, professional, and accurate with all the information provided.`;
+IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to the point. Use emojis sparingly. Focus on answering the specific question asked. Don't repeat information unless necessary.`;
 
       const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`, {
         method: 'GET',
@@ -124,19 +155,23 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
     const lowerMessage = userMessage.toLowerCase();
     
     if (lowerMessage.includes('menu') || lowerMessage.includes('food') || lowerMessage.includes('dish')) {
-      return "Our menu features authentic Pakistani cuisine with spicy burgers, pizzas, and traditional dishes. All our food is Halal certified and made with premium ingredients! 🌶️🍔🍕";
+      return "🍔 **Menu:** Spicy burgers, fried chicken, pizzas, traditional Pakistani dishes. All Halal certified! 📞 +39 3510505298";
     } else if (lowerMessage.includes('location') || lowerMessage.includes('address') || lowerMessage.includes('where')) {
-      return "We're located in Castel San Giovanni, Italy! You can find us at Corso Giacomo Matteotti, 44. We're excited to serve the local community with authentic Halal cuisine! 📍🇮🇹";
+      return "📍 **Location:** Corso Giacomo Matteotti, 44, Castel San Giovanni, Italy. Opening September 2025! 🗺️";
     } else if (lowerMessage.includes('hours') || lowerMessage.includes('open') || lowerMessage.includes('time')) {
-      return "We're opening soon in September 2025! We'll be serving from 11:00 AM to 11:00 PM, Monday through Saturday. Stay tuned for our grand opening! 🎉⏰";
+      return "⏰ **Hours:** Opening September 2025! Monday-Saturday: 11:00 AM - 11:00 PM. Sunday: Closed. 📅";
     } else if (lowerMessage.includes('halal') || lowerMessage.includes('certified')) {
-      return "Yes! We are proudly Halal certified. All our ingredients and preparation methods follow strict Halal guidelines. You can trust that our food meets the highest standards of Halal certification! ✨🕌";
+      return "🕌 **100% Halal Certified** - Strict guidelines, certified ingredients, no cross-contamination. Trusted by Muslim community! ✅";
     } else if (lowerMessage.includes('phone') || lowerMessage.includes('call') || lowerMessage.includes('contact')) {
-      return "You can reach us at +39 3510505298. Feel free to call us for any questions about our menu, location, or opening! 📞";
+      return "📞 **Contact:** Phone: +39 3510505298 | Email: nawabikhana@gmail.com | Instagram: @nawabi_khanaa";
     } else if (lowerMessage.includes('instagram') || lowerMessage.includes('social')) {
-      return "Follow us on Instagram @nawabi_khanaa for updates, behind-the-scenes content, and special announcements! 📱✨";
+      return "📱 **Social:** Instagram @nawabi_khanaa | TikTok @nawabikhana | WhatsApp +39 3510505298";
+    } else if (lowerMessage.includes('owner') || lowerMessage.includes('who owns') || lowerMessage.includes('founder')) {
+      return "👨‍🍳 **Owner:** Abdulrehman Gujjar - Dedicated to serving authentic Pakistani cuisine in Castel San Giovanni! 🌶️";
+    } else if (lowerMessage.includes('developer') || lowerMessage.includes('who made') || lowerMessage.includes('built')) {
+      return "💻 **Developer:** Karim El Assali - Created this website and AI assistant for Nawabi Khana! 🚀";
     } else {
-      return "Thank you for your question! I'm here to help with any information about Nawabi Khana restaurant. Feel free to ask about our menu, location, hours, or anything else! 😊";
+      return "👋 **Nawabi Khana** - Authentic Pakistani fast food in Castel San Giovanni, Italy. Opening September 2025! Ask about menu, location, hours, or contact info! 🌶️";
     }
   };
 
@@ -199,7 +234,7 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
     <>
       {/* Floating AI Button */}
       <motion.div
-        className="fixed bottom-6 right-6 z-[9999] md:bottom-6 md:right-6 bottom-4 right-4"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999]"
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
@@ -208,14 +243,14 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
           onClick={toggleChat}
           whileHover={{ scale: 1.1, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full shadow-2xl border-4 border-white/20 flex items-center justify-center text-white hover:from-amber-700 hover:to-orange-700 transition-all duration-300"
+          className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full shadow-2xl border-4 border-white/20 flex items-center justify-center text-white hover:from-amber-700 hover:to-orange-700 transition-all duration-300"
           aria-label="Open AI Assistant"
           aria-expanded={isOpen}
         >
           <img 
             src="/premuim_logo.png" 
             alt="Nawabi Khana AI" 
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
           />
         </motion.button>
       </motion.div>
@@ -228,75 +263,116 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3, type: "spring" }}
-            className="fixed bg-white rounded-2xl shadow-2xl border border-gray-200 z-[9998] overflow-hidden md:w-96 md:h-[500px] w-[calc(100vw-32px)] h-[400px] bottom-24 right-6 md:bottom-24 md:right-6"
+            className="fixed bg-white rounded-2xl shadow-2xl border border-gray-200 z-[9998] overflow-hidden 
+                     w-[calc(100vw-32px)] h-[calc(100vh-120px)] max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
+                     bottom-20 sm:bottom-24 right-4 sm:right-6 md:right-6
+                     max-h-[600px] sm:max-h-[500px] flex flex-col"
             role="dialog"
             aria-labelledby="chat-title"
             aria-describedby="chat-description"
-            style={{
-              position: 'fixed',
-              bottom: '96px',
-              right: '24px',
-              width: '384px',
-              height: '500px',
-              zIndex: 9998,
-              maxHeight: 'calc(100vh - 120px)',
-              '@media (max-width: 768px)': {
-                bottom: '80px',
-                right: '16px',
-                width: 'calc(100vw - 32px)',
-                height: '400px',
-              }
-            }}
           >
-            {/* Restaurant Logo Background */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <img 
-                src="/premuim_logo.png" 
-                alt="Background Logo" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-
             {/* Chat Header */}
-            <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-4 text-white">
-              <div className="flex items-center justify-between mb-3">
-                <h3 id="chat-title" className="text-lg font-bold flex items-center">
-                  <img src="/premuim_logo.png" alt="Logo" className="w-6 h-6 mr-2 rounded-full" />
-                  Nawabi Khana AI Assistant
+            <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-3 sm:p-4 text-white flex-shrink-0">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <h3 id="chat-title" className="text-base sm:text-lg font-bold flex items-center">
+                  <img src="/premuim_logo.png" alt="Logo" className="w-5 h-5 sm:w-6 sm:h-6 mr-2 rounded-full" />
+                  <span className="hidden sm:inline">Nawabi Khana AI Assistant</span>
+                  <span className="sm:hidden">AI Assistant</span>
                 </h3>
                 <button
                   onClick={toggleChat}
-                  className="text-white hover:text-gray-200 transition-colors"
+                  className="text-white hover:text-gray-200 transition-colors p-1"
                   aria-label="Close chat"
                 >
-                  ✕
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
               
-              <p id="chat-description" className="text-sm text-amber-100">
+              <p id="chat-description" className="text-xs sm:text-sm text-amber-100">
                 Ask me anything about Nawabi Khana restaurant!
               </p>
             </div>
 
-            {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 bg-gray-50 relative z-10">
+            {/* Messages Area with Logo Background */}
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 bg-gray-50 relative min-h-0">
+              {/* Restaurant Logo Background - Only in messages area */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
+                <img 
+                  src="/premuim_logo.png" 
+                  alt="Background Logo" 
+                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
+                />
+              </div>
+              
+              {/* Menara (Mughal Domes) Background Elements */}
+              <div className="absolute inset-0 pointer-events-none">
+                {/* Central Dome */}
+                <motion.div
+                  animate={{
+                    opacity: [0.03, 0.06, 0.03],
+                    scale: [1, 1.01, 1],
+                  }}
+                  transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32"
+                >
+                  <div className="w-full h-full bg-gradient-to-b from-amber-400/20 to-orange-600/20 rounded-full border border-amber-500/30"></div>
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 sm:w-3 sm:h-3 bg-amber-500/40 rounded-full"></div>
+                </motion.div>
+                
+                {/* Left Dome */}
+                <motion.div
+                  animate={{
+                    opacity: [0.02, 0.05, 0.02],
+                    scale: [1, 1.005, 1],
+                  }}
+                  transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                  className="absolute top-1/3 left-1/4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+                >
+                  <div className="w-full h-full bg-gradient-to-b from-red-500/20 to-red-700/20 rounded-full border border-red-500/30"></div>
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500/40 rounded-full"></div>
+                </motion.div>
+                
+                {/* Right Dome */}
+                <motion.div
+                  animate={{
+                    opacity: [0.02, 0.05, 0.02],
+                    scale: [1, 1.005, 1],
+                  }}
+                  transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+                  className="absolute top-1/3 right-1/4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+                >
+                  <div className="w-full h-full bg-gradient-to-b from-red-500/20 to-red-700/20 rounded-full border border-red-500/30"></div>
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500/40 rounded-full"></div>
+                </motion.div>
+              </div>
               {messages.map((message) => (
                 <motion.div
                   key={message.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
+                  className={`flex ${message.type === "user" ? "justify-end" : "justify-start"} mb-3 relative z-10`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-2xl ${
+                    className={`max-w-[85%] p-2 sm:p-3 rounded-2xl ${
                       message.type === "user"
                         ? "bg-gradient-to-r from-amber-500 to-orange-600 text-white"
                         : "bg-white text-gray-800 border border-gray-200"
                     } shadow-sm`}
                   >
-                    <p className="text-sm leading-relaxed">{message.content}</p>
-                    <p className={`text-xs mt-2 ${
+                    <div 
+                      className="text-xs sm:text-sm leading-relaxed whitespace-pre-line"
+                      dangerouslySetInnerHTML={{ 
+                        __html: message.type === "bot" 
+                          ? highlightWords(message.content.split('**').map((part, index) => 
+                              index % 2 === 1 ? `<strong>${part}</strong>` : part
+                            ).join(''))
+                          : message.content.split('**').map((part, index) => 
+                              index % 2 === 1 ? `<strong>${part}</strong>` : part
+                            ).join('')
+                      }}
+                    />
+                    <p className={`text-xs mt-1 sm:mt-2 ${
                       message.type === "user" ? "text-amber-100" : "text-gray-500"
                     }`}>
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -310,9 +386,9 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex justify-start"
+                  className="flex justify-start mb-3 relative z-10"
                 >
-                  <div className="bg-white text-gray-800 border border-gray-200 p-3 rounded-2xl shadow-sm">
+                  <div className="bg-white text-gray-800 border border-gray-200 p-2 sm:p-3 rounded-2xl shadow-sm">
                     <div className="flex items-center space-x-2">
                       <div className="flex space-x-1">
                         <motion.div
@@ -331,7 +407,7 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
                           className="w-2 h-2 bg-amber-500 rounded-full"
                         />
                       </div>
-                      <span className="text-sm text-gray-500">AI is typing...</span>
+                      <span className="text-xs sm:text-sm text-gray-500">AI is <span className="text-orange-500 font-semibold">typing</span>...</span>
                     </div>
                   </div>
                 </motion.div>
@@ -341,7 +417,7 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
             </div>
 
             {/* Input Area */}
-            <div className="p-4 bg-white border-t border-gray-200 relative z-10">
+            <div className="p-3 sm:p-4 bg-white border-t border-gray-200 relative z-10 flex-shrink-0">
               <div className="flex space-x-2">
                 <input
                   type="text"
@@ -351,28 +427,28 @@ Please provide a helpful, informative response about Nawabi Khana restaurant. Be
                   placeholder="Ask me about our restaurant..."
                   disabled={isLoading}
                   aria-label="Type your message"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent disabled:opacity-50 transition-all duration-200"
+                  className="flex-1 px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent disabled:opacity-50 transition-all duration-200"
                 />
                 <motion.button
                   onClick={handleSendMessage}
                   disabled={isLoading || !inputValue.trim()}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl hover:from-amber-600 hover:to-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center"
+                  className="px-3 sm:px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl hover:from-amber-600 hover:to-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center"
                 >
                   <Send className="w-4 h-4" />
                 </motion.button>
               </div>
               
               {/* Quick Actions */}
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-2 sm:mt-3 flex flex-wrap gap-1 sm:gap-2">
                 {["Menu", "Location", "Hours", "Halal"].map((action) => (
                   <motion.button
                     key={action}
                     onClick={() => setInputValue(action)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-3 py-1 text-xs bg-amber-100 text-amber-700 rounded-full hover:bg-amber-200 transition-colors duration-200"
+                    className="px-2 sm:px-3 py-1 text-xs bg-amber-100 text-amber-700 rounded-full hover:bg-amber-200 transition-colors duration-200"
                   >
                     {action}
                   </motion.button>
