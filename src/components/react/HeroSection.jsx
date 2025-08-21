@@ -69,7 +69,7 @@ const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants,
         variants={containerVariants}
         initial="hidden"
         animate={isLoaded ? "visible" : "hidden"}
-        className="relative z-10 max-w-4xl mx-auto px-6 py-8 flex flex-col items-center justify-center h-full"
+        className="relative z-10 w-full px-4 md:px-6 py-4 md:py-8 flex flex-col items-center justify-center min-h-screen"
       >
         {/* Logo */}
         <Logo />

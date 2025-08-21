@@ -6,7 +6,7 @@ const Logo = () => {
     <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
-      className="relative mb-8"
+      className="relative mb-6 md:mb-8 w-full flex justify-center"
     >
       {/* Professional Glowing Rings with Refined Colors */}
       <motion.div
@@ -20,7 +20,7 @@ const Logo = () => {
           opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" },
           scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute inset-0 w-64 h-64 mx-auto rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 blur-sm opacity-20"
+        className="absolute inset-0 w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 blur-sm opacity-20"
       />
       
       <motion.div
@@ -34,11 +34,11 @@ const Logo = () => {
           opacity: { duration: 6, repeat: Infinity, ease: "easeInOut" },
           scale: { duration: 7, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute inset-0 w-64 h-64 mx-auto rounded-full bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 blur-md opacity-15"
+        className="absolute inset-0 w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 blur-md opacity-15"
       />
 
       {/* Professional Logo Background Circle */}
-      <div className="relative w-64 h-64 mx-auto bg-gradient-to-br from-slate-900 via-gray-900 to-black rounded-full flex items-center justify-center shadow-2xl overflow-hidden border-2 border-amber-500/40">
+      <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto bg-gradient-to-br from-slate-900 via-gray-900 to-black rounded-full flex items-center justify-center shadow-2xl overflow-hidden border-2 border-amber-500/40">
         {/* Sophisticated shine effect overlay */}
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent opacity-40"></div>
         
