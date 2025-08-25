@@ -12,7 +12,7 @@ export default function AIAssistant() {
   // Developer-side custom instructions - modify these as needed
   const developerInstructions = `
     IMPORTANT DEVELOPER INSTRUCTIONS:
-    - Always use the correct Instagram account: @nawabi_khanaa
+    - Always use the correct Instagram account: @spicy_town
     - Always use the correct phone number: +39 3510505298
     - The restaurant owner is: Abdulrehman Gujjar
     - Restaurant is located in: Castel San Giovanni, Italy
@@ -25,16 +25,16 @@ export default function AIAssistant() {
   `;
 
   const restaurantInfo = {
-    name: "Nawabi Khana",
-    cuisine: "Authentic Halal Indian Cuisine",
-    specialties: "Traditional Indian dishes, tandoori specialties, authentic curries, and fresh pakoras",
+    name: "Spicy Town",
+    cuisine: "Authentic Halal Fast Food",
+    specialties: "Traditional spicy dishes, grilled specialties, authentic flavors, and fresh ingredients",
     location: "Castel San Giovanni, Italy",
     phone: "+39 3510505298",
-    instagram: "@nawabi_khanaa",
+          instagram: "@spicy_town",
     owner: "Abdulrehman Gujjar",
     opening: "Opening Soon - September 2025",
     halal: "Halal Certified",
-    features: "Premium Quality, Spicy Excellence, Authentic Indian Taste"
+    features: "Premium Quality, Spicy Excellence, Authentic Flavors"
   };
 
   // Menu information from menu_items.json
@@ -45,7 +45,7 @@ export default function AIAssistant() {
     piatti_carne: ["Mutton Chops", "Badami Korma", "Chicken Tikka Masala", "Butter Chicken", "Kofta Curry", "Lamb Curry", "Qeema Matar"],
     piatti_vegetariani: ["Palak Paneer", "Chana Masala", "Aloo Matar", "Dal Makhani", "Aloo Tikki", "Aloo Gobhi", "Daal Tarka"],
     price_range: "€4.00 - €22.00",
-    highlights: ["Tandoori specialties", "Authentic curries", "Vegetarian options", "Fresh ingredients", "Traditional recipes"]
+    highlights: ["Grilled specialties", "Authentic flavors", "Vegetarian options", "Fresh ingredients", "Traditional recipes"]
   };
 
   // Array of words to highlight in orange color
@@ -55,17 +55,17 @@ export default function AIAssistant() {
     "owner", "abdulrehman", "gujjar", "founder",
     "developer", "karim", "el assali", "programmer",
     "phone", "call", "contact", "number", "+39", "3510505298",
-    "instagram", "social", "media", "@nawabi_khanaa",
-    "tiktok", "@nawabikhana",
+          "instagram", "social", "media", "@spicy_town",
+      "tiktok", "@spicytown",
     "whatsapp", "wa.me",
-    "email", "mail", "nawabikhana@gmail.com",
+          "email", "mail", "spicytown@gmail.com",
     "halal", "certified", "certification", "muslim", "islamic",
-    "menu", "food", "indian", "cuisine", "tandoori", "curry",
+    "menu", "food", "cuisine", "grilled", "flavors",
     "spicy", "hot", "flavor", "taste", "authentic",
     "september", "2025", "opening soon", "grand opening",
     // Menu items
     "antipasto", "grigliata", "piatti carne", "piatti vegetariani",
-    "samosa", "pakora", "tikka", "kebab", "korma", "masala", "butter chicken",
+    "grilled", "kebab", "flavors", "spicy", "authentic",
     "paneer", "dal", "aloo", "chana", "palak", "gobhi"
   ];
 
@@ -102,7 +102,7 @@ export default function AIAssistant() {
       {
         id: 1,
         type: "bot",
-        content: "👋 **Welcome to Nawabi Khana!** 🌶️\n\n🍽️ Authentic Indian Cuisine in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
+        content: "👋 **Welcome to Spicy Town!** 🌶️\n\n🍽️ Authentic Halal Fast Food in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
         timestamp: new Date(),
       },
     ]);
@@ -115,7 +115,7 @@ export default function AIAssistant() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000);
       
-      const prompt = `You are an AI assistant for Nawabi Khana restaurant. ${developerInstructions}
+      const prompt = `You are an AI assistant for Spicy Town restaurant. ${developerInstructions}
 
 Restaurant Information:
 - Name: ${restaurantInfo.name}
@@ -187,15 +187,15 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
     } else if (lowerMessage.includes('halal') || lowerMessage.includes('certified')) {
       return "🕌 **100% Halal Certified** - Strict guidelines, certified ingredients, no cross-contamination. Trusted by Muslim community! ✅";
     } else if (lowerMessage.includes('phone') || lowerMessage.includes('call') || lowerMessage.includes('contact')) {
-      return "📞 **Contact:** Phone: +39 3510505298 | Email: nawabikhana@gmail.com | Instagram: @nawabi_khanaa";
+              return "📞 **Contact:** Phone: +39 3510505298 | Email: spicytown@gmail.com | Instagram: @spicy_town";
     } else if (lowerMessage.includes('instagram') || lowerMessage.includes('social')) {
-      return "📱 **Social:** Instagram @nawabi_khanaa | TikTok @nawabikhana | WhatsApp +39 3510505298";
+              return "📱 **Social:** Instagram @spicy_town | TikTok @spicytown | WhatsApp +39 3510505298";
     } else if (lowerMessage.includes('owner') || lowerMessage.includes('who owns') || lowerMessage.includes('founder')) {
       return "👨‍🍳 **Owner:** Abdulrehman Gujjar - Dedicated to serving authentic Indian cuisine in Castel San Giovanni! 🌶️";
     } else if (lowerMessage.includes('developer') || lowerMessage.includes('who made') || lowerMessage.includes('built')) {
-      return "💻 **Developer:** Karim El Assali - Created this website and AI assistant for Nawabi Khana! 🚀";
+              return "💻 **Developer:** Karim El Assali - Created this website and AI assistant for Spicy Town! 🚀";
     } else {
-      return "👋 **Nawabi Khana** - Authentic Indian cuisine in Castel San Giovanni, Italy. Opening September 2025! Ask about menu, location, hours, or contact info! 🌶️";
+              return "👋 **Spicy Town** - Authentic Indian cuisine in Castel San Giovanni, Italy. Opening September 2025! Ask about menu, location, hours, or contact info! 🌶️";
     }
   };
 
@@ -273,7 +273,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
         >
           <img 
             src="/premuim_logo.png" 
-            alt="Nawabi Khana AI" 
+            alt="Spicy Town AI" 
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
           />
         </motion.button>
@@ -300,7 +300,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
               <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <h3 id="chat-title" className="text-base sm:text-lg font-bold flex items-center">
                   <img src="/premuim_logo.png" alt="Logo" className="w-5 h-5 sm:w-6 sm:h-6 mr-2 rounded-full" />
-                  <span className="hidden sm:inline">Nawabi Khana AI Assistant</span>
+                  <span className="hidden sm:inline">Spicy Town AI Assistant</span>
                   <span className="sm:hidden">AI Assistant</span>
                 </h3>
                 <button
@@ -313,7 +313,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
               </div>
               
               <p id="chat-description" className="text-xs sm:text-sm text-amber-100">
-                Ask me anything about Nawabi Khana restaurant!
+                Ask me anything about Spicy Town restaurant!
               </p>
             </div>
 

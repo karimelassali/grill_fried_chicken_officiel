@@ -7,38 +7,51 @@ const OpeningSoon = () => {
   return (
     <motion.div className="mb-4 md:mb-6 w-full px-2">
       <motion.div
-        className="backdrop-blur-lg border-2 border-amber-500/50 rounded-3xl p-4 md:p-6 mb-4 md:mb-6 shadow-2xl max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
+        className="backdrop-blur-xl bg-gradient-to-r from-white/10 via-amber-500/10 to-white/10 border border-amber-400/30 rounded-3xl p-4 md:p-6 mb-4 shadow-2xl max-w-5xl mx-auto relative overflow-hidden"
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.8, duration: 0.8 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
       >
-        <motion.p
-          className="text-xl md:text-3xl font-bold text-white mb-4 flex items-center justify-center gap-2 md:gap-4 text-center"
-        >
-          <motion.div
-            animate={{ rotate: [0, 8, -8, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            <Flame className="w-6 h-6 md:w-8 md:h-8 text-amber-500 drop-shadow-lg" />
-          </motion.div>
-          <span className="text-white drop-shadow-lg font-extrabold tracking-wide">
-            We're Opening Soon!
-          </span>
-          <motion.div
-            animate={{ rotate: [0, -8, 8, 0] }}
-            transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-          >
-            <Flame className="w-6 h-6 md:w-8 md:h-8 text-amber-500 drop-shadow-lg" />
-          </motion.div>
-        </motion.p>
-        
-        <div className="text-center mb-4">
-          <p className="text-white text-base md:text-lg font-semibold drop-shadow-lg leading-relaxed">
-            Get ready for the most <span className="text-amber-300 font-bold">authentic spicy experience</span> in Castel San Giovanni! 🌶️
-          </p>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-500 rounded-3xl"></div>
         </div>
         
-        <CountdownTimer date={"2025-09-15T00:00:00"} />
+        {/* Header with Enhanced Icons */}
+        <motion.div
+          className="text-center mb-4 relative z-10"
+        >
+          <motion.div
+            className="text-center mb-3"
+          >
+            <h2 className="text-xl md:text-3xl font-black text-white drop-shadow-lg tracking-wide">
+              WE'RE OPENING SOON!
+            </h2>
+          </motion.div>
+          
+          {/* Enhanced Subtitle */}
+          <motion.p
+            className="text-base md:text-lg text-white font-semibold drop-shadow-lg leading-relaxed max-w-3xl mx-auto mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 0.6 }}
+          >
+            Get ready for the most <span className="text-amber-300 font-bold bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">authentic spicy experience</span> in Castel San Giovanni! 🌶️
+          </motion.p>
+        </motion.div>
+        
+        {/* Enhanced Countdown Section */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.6, duration: 0.8 }}
+        >
+          <div className="text-center mb-3">
+            <span className="text-amber-200 font-semibold text-sm md:text-base">Opening Date: September 15, 2025</span>
+          </div>
+          <CountdownTimer date={"2025-09-15T00:00:00"} />
+        </motion.div>
       </motion.div>
     </motion.div>
   );

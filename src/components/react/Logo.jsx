@@ -48,12 +48,12 @@ const Logo = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1, type: "spring" }}
           className="relative w-full h-full z-10 object-cover rounded-full"
-          alt="Nawabi Khana Logo"
+          alt="Spicy Town Logo"
           src="/premuim_logo.png"
           onError={(e) => {
             e.target.onerror = null;
             e.target.src =
-              "https://placehold.co/320x320/000000/FFFFFF?text=Nawabi+Khana+Logo";
+              "https://placehold.co/320x320/000000/FFFFFF?text=Spicy+Town+Logo";
           }}
         />
         

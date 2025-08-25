@@ -67,7 +67,7 @@ const Footer = ({ itemVariants }) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 4, duration: 0.8 }}
       >
-        © 2025 NAWABI KHANA RESTAURANT
+        © 2025 SPICY TOWN RESTAURANT
       </motion.p>
       
       <motion.p 

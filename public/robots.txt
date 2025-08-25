@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nawabi-khana.vercel.app/sitemap.xml
+Sitemap: https://spicy-town.vercel.app/sitemap.xml

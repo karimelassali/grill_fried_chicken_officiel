@@ -1,10 +1,10 @@
-# Nawabi Khana - Restaurant Landing Page
+# Spicy Town - Restaurant Landing Page
 
-A modern, spicy-themed landing page for Nawabi Khana restaurant built with Astro and React.
+A modern, spicy-themed landing page for Spicy Town restaurant built with Astro and React.
 
 ## 🌶️ About
 
-Nawabi Khana is a halal-certified fast food restaurant specializing in spicy burgers and fried chicken. This landing page showcases our upcoming opening with a countdown timer, contact information, and social media links.
+Spicy Town is a halal-certified fast food restaurant specializing in spicy burgers and grilled specialties. This landing page showcases our upcoming opening with a countdown timer, contact information, and social media links.
 
 ## 🚀 Project Structure
 
@@ -76,9 +76,9 @@ All commands are run from the root of the project, from a terminal:
 ## 📱 Contact & Social Media
 
 - **WhatsApp**: +39 3510505298
-- **Instagram**: @nawabikhana
-- **TikTok**: @nawabikhana
-- **Email**: nawabikhana@gmail.com
+- **Instagram**: @spicy_town
+- **TikTok**: @spicytown
+- **Email**: spicytown@gmail.com
 - **Location**: Corso Giacomo Matteotti, 44, Castel San Giovanni, Italy
 
 ## 👀 Want to learn more?
@@ -87,4 +87,4 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ---
 
-© 2025 NAWABI KHANA RESTAURANT - 🌶️ Spicing up your taste buds since 2025 🔥
+© 2025 SPICY TOWN RESTAURANT - 🌶️ Spicing up your taste buds since 2025 🔥

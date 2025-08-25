@@ -1,16 +1,30 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import LightRays from "./ui/light_rays";
 import Logo from "./Logo";
 import BrandName from "./BrandName";
 import OpeningSoon from "./OpeningSoon";
 import HalalBadge from "./HalalBadge";
 import FloatingElements from "./FloatingElements";
+import { ChevronDown, MapPin, Clock, Phone } from "lucide-react";
 
 const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants, itemVariants }) => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 300], [0, -100]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMousePosition);
+  }, []);
+
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* Background Video - Only in Hero Section */}
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* Background Video with Enhanced Overlay */}
       <div className="absolute inset-0 w-full h-full">
         <video
           autoPlay
@@ -27,120 +41,212 @@ const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants,
           Your browser does not support the video tag.
         </video>
         
-        {/* Fallback background image - only show when video fails */}
-        {!videoLoaded && (
-          <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-0"
-            style={{ backgroundImage: 'url(/background.jpeg)' }}
-          />
-        )}
-      </div>
-      
-      {/* Enhanced overlay with colors matching the video - reduced opacity for better visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-orange-900/15 to-red-800/20"></div>
-      
-     
-      
-      {/* Additional ambient lighting effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{
-            opacity: [0.3, 0.6, 0.3],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/20 to-red-600/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            opacity: [0.2, 0.5, 0.2],
-            scale: [1.1, 1, 1.1],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-yellow-500/20 to-orange-600/20 rounded-full blur-3xl"
-        />
+        {/* Enhanced gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
       </div>
 
-      {/* Menara (Mughal Domes) Design Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Large Central Dome */}
+      {/* Dynamic Ambient Lighting Effects */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Primary light source */}
         <motion.div
           animate={{
-            opacity: [0.1, 0.2, 0.1],
-            scale: [1, 1.05, 1],
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.1, 1],
+            x: [0, 20, 0],
+            y: [0, -20, 0],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
-        >
-          <div className="w-full h-full bg-gradient-to-b from-amber-400/30 to-orange-600/30 rounded-full border-2 border-amber-500/40 shadow-2xl"></div>
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-amber-500/50 rounded-full"></div>
-        </motion.div>
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/15 to-red-600/15 rounded-full blur-3xl"
+        />
         
-        {/* Left Dome */}
+        {/* Secondary light source */}
         <motion.div
           animate={{
-            opacity: [0.08, 0.15, 0.08],
-            scale: [1, 1.03, 1],
+            opacity: [0.15, 0.3, 0.15],
+            scale: [1.1, 1, 1.1],
+            x: [0, -15, 0],
+            y: [0, 25, 0],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/4 left-1/4 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
-        >
-          <div className="w-full h-full bg-gradient-to-b from-red-500/30 to-red-700/30 rounded-full border-2 border-red-500/40 shadow-xl"></div>
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-red-500/50 rounded-full"></div>
-        </motion.div>
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-yellow-500/15 to-orange-600/15 rounded-full blur-3xl"
+        />
         
-        {/* Right Dome */}
+        {/* Accent lighting */}
         <motion.div
           animate={{
-            opacity: [0.08, 0.15, 0.08],
-            scale: [1, 1.03, 1],
+            opacity: [0.1, 0.25, 0.1],
+            scale: [1, 1.05, 1],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-          className="absolute top-1/4 right-1/4 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
-        >
-          <div className="w-full h-full bg-gradient-to-b from-red-500/30 to-red-700/30 rounded-full border-2 border-red-500/40 shadow-xl"></div>
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-red-500/50 rounded-full"></div>
-        </motion.div>
-        
-        {/* Small Right Dome */}
-        <motion.div
-          animate={{
-            opacity: [0.06, 0.12, 0.06],
-            scale: [1, 1.02, 1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-1/3 right-1/6 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
-        >
-          <div className="w-full h-full bg-gradient-to-b from-red-500/30 to-red-700/30 rounded-full border-2 border-red-500/40 shadow-lg"></div>
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-red-500/50 rounded-full"></div>
-        </motion.div>
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-full blur-2xl"
+        />
       </div>
 
-      {/* Floating Elements */}
+      {/* Floating Elements with Enhanced Positioning */}
       <FloatingElements />
 
-      {/* Hero Content - Logo, Name, and Counter */}
+      {/* Main Hero Content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isLoaded ? "visible" : "hidden"}
-        className="relative z-10 w-full px-4 md:px-6 py-4 md:py-8 flex flex-col items-center justify-center min-h-screen"
+        style={{ y, opacity }}
+        className="relative z-10 w-full px-4 md:px-6 py-8 md:py-12 flex flex-col items-center justify-center min-h-screen"
       >
-        {/* Container with max-width for large screens */}
-        <div className="w-full max-w-6xl mx-auto flex flex-col items-center justify-center">
-          {/* Logo */}
-          <Logo />
+        {/* Content Container with Professional Layout */}
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center space-y-6 md:space-y-8">
           
-          {/* Brand Name */}
-          <BrandName />
+          {/* Logo Section with Enhanced Animation */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 1, type: "spring", bounce: 0.3 }}
+            className="mb-2"
+          >
+            <Logo />
+          </motion.div>
           
-          {/* Opening Soon Section */}
-          <OpeningSoon />
+          {/* Enhanced Brand Name with Professional Typography */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 1, type: "spring" }}
+            className="text-center mb-4"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-4 tracking-tight drop-shadow-2xl">
+              <span className="font-serif font-black tracking-wider text-white">
+                SPICY TOWN
+              </span>
+            </h1>
+            
+            {/* Professional Tagline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="max-w-4xl mx-auto"
+            >
+              <p className="text-lg md:text-xl lg:text-2xl font-bold text-amber-300 mb-3 tracking-wide drop-shadow-lg">
+                FEEL THE RICH TASTE 🔥🌶️
+              </p>
+              
+              {/* Enhanced Subtitle with Professional Layout */}
+              <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 text-base md:text-lg text-gray-200 font-medium">
+                <span className="text-white font-semibold">Authentic Halal</span>
+                <span className="text-amber-400">•</span>
+                <span className="text-white font-semibold">Premium Quality</span>
+                <span className="text-amber-400">•</span>
+                <span className="text-white font-semibold">Spicy Excellence</span>
+              </div>
+            </motion.div>
+          </motion.div>
           
-          {/* Halal Badge */}
-          <HalalBadge />
+          {/* Enhanced Opening Soon Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="w-full max-w-5xl"
+          >
+            <OpeningSoon />
+          </motion.div>
+          
+          {/* Enhanced Halal Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
+            className="mb-4"
+          >
+            <HalalBadge />
+          </motion.div>
+          
+          {/* Quick Info Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8, duration: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 w-full max-w-4xl mx-auto"
+          >
+            {/* Location Card */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-3 md:p-4 text-center shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="flex flex-col items-center space-y-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-white font-bold text-base">Location</h3>
+                <p className="text-gray-200 text-xs leading-relaxed">
+                  Corso Giacomo Matteotti, 44<br />
+                  Castel San Giovanni, Italy
+                </p>
+              </div>
+            </motion.div>
+            
+            {/* Opening Hours Card */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-3 md:p-4 text-center shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="flex flex-col items-center space-y-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+                  <Clock className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-white font-bold text-base">Opening Soon</h3>
+                <p className="text-gray-200 text-xs leading-relaxed">
+                  September 2025<br />
+                  Get Ready! 🔥
+                </p>
+              </div>
+            </motion.div>
+            
+            {/* Contact Card */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-3 md:p-4 text-center shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="flex flex-col items-center space-y-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
+                  <Phone className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-white font-bold text-base">Contact</h3>
+                <p className="text-gray-200 text-xs leading-relaxed">
+                  +39 3510505298<br />
+                  WhatsApp Available
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 1 }}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="flex flex-col items-center space-y-2 cursor-pointer"
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+          <span className="text-white/70 text-sm font-medium tracking-wide">Scroll Down</span>
+          <ChevronDown className="w-5 h-5 text-white/70" />
+        </motion.div>
+      </motion.div>
+
+      {/* Loading Spinner */}
+      {!videoLoaded && (
+        <div className="absolute inset-0 bg-black flex items-center justify-center z-30">
+          <div className="w-16 h-16 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
     </div>
   );
 };

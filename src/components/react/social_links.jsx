@@ -39,8 +39,8 @@ export default function SocialLinks() {
     {
       id: "instagram",
       title: "Instagram",
-      subtitle: "@nawabikhana",
-      href: "https://instagram.com/nawabi_khanaa",
+      subtitle: "@spicytown",
+      href: "https://instagram.com/spicy_town",
       icon: Instagram,
       color: "border-pink-500 hover:bg-pink-50 hover:border-pink-600",
       iconColor: "text-pink-600",
@@ -49,8 +49,8 @@ export default function SocialLinks() {
     {
       id: "tiktok",
       title: "TikTok",
-      subtitle: "@nawabikhana",
-      href: "https://tiktok.com/@nawabikhana",
+      subtitle: "@spicytown",
+      href: "https://tiktok.com/@spicytown",
       icon: Video,
       color: "border-gray-800 hover:bg-gray-50 hover:border-gray-900",
       iconColor: "text-gray-800",
@@ -59,8 +59,8 @@ export default function SocialLinks() {
     {
       id: "email",
       title: "Email",
-      subtitle: "nawabikhana@gmail.com",
-      href: "mailto:nawabikhana@gmail.com",
+      subtitle: "spicytown@gmail.com",
+      href: "mailto:spicytown@gmail.com",
       icon: Mail,
       color: "border-red-500 hover:bg-red-50 hover:border-red-600",
       iconColor: "text-red-600",

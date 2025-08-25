@@ -22,7 +22,7 @@ const LoadingSpinner = ({ isLoaded }) => {
           transition={{ duration: 1.5, repeat: Infinity }}
           className="text-lg sm:text-xl md:text-2xl font-bold text-amber-400"
         >
-          Loading Nawabi Khana...
+          Loading Spicy Town...
         </motion.p>
       </div>
     </motion.div>
