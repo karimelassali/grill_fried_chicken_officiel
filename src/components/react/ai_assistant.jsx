@@ -12,11 +12,11 @@ export default function AIAssistant() {
   // Developer-side custom instructions - modify these as needed
   const developerInstructions = `
     IMPORTANT DEVELOPER INSTRUCTIONS:
-    - Always use the correct Instagram account: @spicy_town
+    - Always use the correct Instagram account: @spicytown_csg
     - Always use the correct phone number: +39 3510505298
     - The restaurant owner is: Abdulrehman Gujjar
     - Restaurant is located in: Castel San Giovanni, Italy
-    - Opening date: September 2025
+    - Opening date: September 20, 2025
     - Always mention that the restaurant is Halal certified
     - Emphasize the spicy and authentic Pakistani cuisine
     - Be friendly, professional, and informative
@@ -25,14 +25,14 @@ export default function AIAssistant() {
   `;
 
   const restaurantInfo = {
-    name: "Spicy Town",
+    name: "Spicy Town CSG",
     cuisine: "Authentic Halal Fast Food",
     specialties: "Traditional spicy dishes, grilled specialties, authentic flavors, and fresh ingredients",
     location: "Castel San Giovanni, Italy",
     phone: "+39 3510505298",
-          instagram: "@spicy_town",
+          instagram: "@spicytown_csg",
     owner: "Abdulrehman Gujjar",
-    opening: "Opening Soon - September 2025",
+    opening: "Opening Soon - September 20, 2025",
     halal: "Halal Certified",
     features: "Premium Quality, Spicy Excellence, Authentic Flavors"
   };
@@ -55,10 +55,10 @@ export default function AIAssistant() {
     "owner", "abdulrehman", "gujjar", "founder",
     "developer", "karim", "el assali", "programmer",
     "phone", "call", "contact", "number", "+39", "3510505298",
-          "instagram", "social", "media", "@spicy_town",
-      "tiktok", "@spicytown",
+          "instagram", "social", "media", "@spicytown_csg",
+      "tiktok", "@spicytown_csg",
     "whatsapp", "wa.me",
-          "email", "mail", "spicytown@gmail.com",
+          "email", "mail", "spicytowncsg@gmail.com",
     "halal", "certified", "certification", "muslim", "islamic",
     "menu", "food", "cuisine", "grilled", "flavors",
     "spicy", "hot", "flavor", "taste", "authentic",
@@ -102,7 +102,7 @@ export default function AIAssistant() {
       {
         id: 1,
         type: "bot",
-        content: "👋 **Welcome to Spicy Town!** 🌶️\n\n🍽️ Authentic Halal Fast Food in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
+        content: "👋 **Welcome to Spicy Town CSG!** 🌶️\n\n🍽️ Authentic Halal Fast Food in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 20, 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
         timestamp: new Date(),
       },
     ]);
@@ -115,7 +115,7 @@ export default function AIAssistant() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000);
       
-      const prompt = `You are an AI assistant for Spicy Town restaurant. ${developerInstructions}
+      const prompt = `You are an AI assistant for Spicy Town CSG restaurant. ${developerInstructions}
 
 Restaurant Information:
 - Name: ${restaurantInfo.name}
@@ -181,21 +181,21 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
     if (lowerMessage.includes('menu') || lowerMessage.includes('food') || lowerMessage.includes('dish')) {
       return "🍽️ **Menu:** Antipasto (Samosa, Pakora), Grigliata (Chicken Tikka, Tandoori), Piatti Carne (Butter Chicken, Korma), Piatti Vegetariani (Paneer, Dal). Price: €4-22. All Halal! 📞 +39 3510505298";
     } else if (lowerMessage.includes('location') || lowerMessage.includes('address') || lowerMessage.includes('where')) {
-      return "📍 **Location:** Corso Giacomo Matteotti, 44, Castel San Giovanni, Italy. Opening September 2025! 🗺️";
+      return "📍 **Location:** Corso Giacomo Matteotti, 44, Castel San Giovanni, Italy. Opening September 20, 2025! 🗺️";
     } else if (lowerMessage.includes('hours') || lowerMessage.includes('open') || lowerMessage.includes('time')) {
-      return "⏰ **Hours:** Opening September 2025! Monday-Saturday: 11:00 AM - 11:00 PM. Sunday: Closed. 📅";
+      return "⏰ **Hours:** Opening September 20, 2025! Monday-Saturday: 11:00 AM - 11:00 PM. Sunday: Closed. 📅";
     } else if (lowerMessage.includes('halal') || lowerMessage.includes('certified')) {
       return "🕌 **100% Halal Certified** - Strict guidelines, certified ingredients, no cross-contamination. Trusted by Muslim community! ✅";
     } else if (lowerMessage.includes('phone') || lowerMessage.includes('call') || lowerMessage.includes('contact')) {
-              return "📞 **Contact:** Phone: +39 3510505298 | Email: spicytown@gmail.com | Instagram: @spicy_town";
+              return "📞 **Contact:** Phone: +39 3510505298 | Email: spicytowncsg@gmail.com | Instagram: @spicytown_csg";
     } else if (lowerMessage.includes('instagram') || lowerMessage.includes('social')) {
-              return "📱 **Social:** Instagram @spicy_town | TikTok @spicytown | WhatsApp +39 3510505298";
+              return "📱 **Social:** Instagram @spicytown_csg | TikTok @spicytown_csg | WhatsApp +39 3510505298";
     } else if (lowerMessage.includes('owner') || lowerMessage.includes('who owns') || lowerMessage.includes('founder')) {
       return "👨‍🍳 **Owner:** Abdulrehman Gujjar - Dedicated to serving authentic Indian cuisine in Castel San Giovanni! 🌶️";
     } else if (lowerMessage.includes('developer') || lowerMessage.includes('who made') || lowerMessage.includes('built')) {
-              return "💻 **Developer:** Karim El Assali - Created this website and AI assistant for Spicy Town! 🚀";
+              return "💻 **Developer:** Karim El Assali - Created this website and AI assistant for Spicy Town CSG! 🚀";
     } else {
-              return "👋 **Spicy Town** - Authentic Indian cuisine in Castel San Giovanni, Italy. Opening September 2025! Ask about menu, location, hours, or contact info! 🌶️";
+              return "👋 **Spicy Town CSG** - Authentic Indian cuisine in Castel San Giovanni, Italy. Opening September 20, 2025! Ask about menu, location, hours, or contact info! 🌶️";
     }
   };
 
@@ -273,7 +273,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
         >
           <img 
             src="/premuim_logo.png" 
-            alt="Spicy Town AI" 
+            alt="Spicy Town CSG AI" 
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
           />
         </motion.button>
@@ -300,7 +300,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
               <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <h3 id="chat-title" className="text-base sm:text-lg font-bold flex items-center">
                   <img src="/premuim_logo.png" alt="Logo" className="w-5 h-5 sm:w-6 sm:h-6 mr-2 rounded-full" />
-                  <span className="hidden sm:inline">Spicy Town AI Assistant</span>
+                  <span className="hidden sm:inline">Spicy Town CSG AI Assistant</span>
                   <span className="sm:hidden">AI Assistant</span>
                 </h3>
                 <button
@@ -313,7 +313,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
               </div>
               
               <p id="chat-description" className="text-xs sm:text-sm text-amber-100">
-                Ask me anything about Spicy Town restaurant!
+                Ask me anything about Spicy Town CSG restaurant!
               </p>
             </div>
 
@@ -396,7 +396,7 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
                             ).join('')
                       }}
                     />
-                    <p className={`text-xs mt-1 sm:mt-2 ${
+                    <p className={`text-xs mt-1 sm:text-sm ${
                       message.type === "user" ? "text-amber-100" : "text-gray-500"
                     }`}>
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -484,4 +484,4 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
       </AnimatePresence>
     </>
   );
-};
+}

@@ -1,10 +1,10 @@
-# Spicy Town - Restaurant Landing Page
+# Spicy Town CSG - Restaurant Landing Page
 
-A modern, spicy-themed landing page for Spicy Town restaurant built with Astro and React.
+A modern, spicy-themed landing page for Spicy Town CSG restaurant built with Astro and React.
 
 ## 🌶️ About
 
-Spicy Town is a halal-certified fast food restaurant specializing in spicy burgers and grilled specialties. This landing page showcases our upcoming opening with a countdown timer, contact information, and social media links.
+Spicy Town CSG is a halal-certified fast food restaurant specializing in spicy burgers and grilled specialties. This landing page showcases our upcoming opening with a countdown timer, contact information, and social media links.
 
 ## 🚀 Project Structure
 
@@ -76,9 +76,9 @@ All commands are run from the root of the project, from a terminal:
 ## 📱 Contact & Social Media
 
 - **WhatsApp**: +39 3510505298
-- **Instagram**: @spicy_town
-- **TikTok**: @spicytown
-- **Email**: spicytown@gmail.com
+- **Instagram**: @spicytown_csg
+- **TikTok**: @spicytown_csg
+- **Email**: spicytowncsg@gmail.com
 - **Location**: Corso Giacomo Matteotti, 44, Castel San Giovanni, Italy
 
 ## 👀 Want to learn more?
@@ -87,4 +87,4 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ---
 
-© 2025 SPICY TOWN RESTAURANT - 🌶️ Spicing up your taste buds since 2025 🔥
+© 2025 SPICY TOWN CSG RESTAURANT - 🌶️ Opening September 20, 2025 🔥

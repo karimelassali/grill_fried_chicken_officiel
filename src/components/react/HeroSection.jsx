@@ -116,7 +116,7 @@ const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants,
           >
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-4 tracking-tight drop-shadow-2xl">
               <span className="font-serif font-black tracking-wider text-white">
-                SPICY TOWN
+                SPICY TOWN 
               </span>
             </h1>
             
@@ -128,7 +128,7 @@ const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants,
               className="max-w-4xl mx-auto"
             >
               <p className="text-lg md:text-xl lg:text-2xl font-bold text-amber-300 mb-3 tracking-wide drop-shadow-lg">
-                FEEL THE RICH TASTE 🔥🌶️
+                Pakistani Cuisine 🌶️
               </p>
               
               {/* Enhanced Subtitle with Professional Layout */}
@@ -197,7 +197,7 @@ const HeroSection = ({ isLoaded, videoLoaded, setVideoLoaded, containerVariants,
                 </div>
                 <h3 className="text-white font-bold text-base">Opening Soon</h3>
                 <p className="text-gray-200 text-xs leading-relaxed">
-                  September 2025<br />
+                  September 20th<br />
                   Get Ready! 🔥
                 </p>
               </div>

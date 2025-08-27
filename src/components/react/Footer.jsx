@@ -51,7 +51,7 @@ const Footer = ({ itemVariants }) => {
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.3, type: "spring" }}
         >
-          N K
+          C S G
         </motion.div>
         <motion.div 
           className="w-12 h-1 sm:w-20 bg-gradient-to-l from-amber-400 to-orange-500 ml-4 sm:ml-8 rounded-full"
@@ -67,7 +67,9 @@ const Footer = ({ itemVariants }) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 4, duration: 0.8 }}
       >
-        © 2025 SPICY TOWN RESTAURANT
+        <p className="text-center text-gray-400 text-sm">
+          © 2025 SPICY TOWN CSG RESTAURANT
+        </p>
       </motion.p>
       
       <motion.p 

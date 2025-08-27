@@ -13,7 +13,7 @@ const BrandName = () => {
         {/* Main text with white color and gold border effect */}
         <span className="relative z-10 text-white">
           <span className="relative">
-            <span className="font-serif font-bold tracking-wider">SPICY TOWN</span>
+            <span className="font-serif font-bold tracking-wider">SPICY TOWN CSG</span>
           </span>
         </span>
         

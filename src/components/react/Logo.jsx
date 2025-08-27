@@ -48,7 +48,7 @@ const Logo = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1, type: "spring" }}
           className="relative w-full h-full z-10 object-cover rounded-full"
-          alt="Spicy Town Logo"
+          alt="Spicy Town CSG Logo"
           src="/premuim_logo.png"
           onError={(e) => {
             e.target.onerror = null;

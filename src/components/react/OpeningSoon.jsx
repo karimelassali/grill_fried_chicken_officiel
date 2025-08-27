@@ -30,14 +30,14 @@ const OpeningSoon = () => {
           </motion.div>
           
           {/* Enhanced Subtitle */}
-          <motion.p
+          {/* <motion.p
             className="text-base md:text-lg text-white font-semibold drop-shadow-lg leading-relaxed max-w-3xl mx-auto mb-4"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.6 }}
           >
             Get ready for the most <span className="text-amber-300 font-bold bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">authentic spicy experience</span> in Castel San Giovanni! 🌶️
-          </motion.p>
+          </motion.p> */}
         </motion.div>
         
         {/* Enhanced Countdown Section */}
@@ -48,9 +48,9 @@ const OpeningSoon = () => {
           transition={{ delay: 1.6, duration: 0.8 }}
         >
           <div className="text-center mb-3">
-            <span className="text-amber-200 font-semibold text-sm md:text-base">Opening Date: September 15, 2025</span>
+            <span className="text-amber-200 font-semibold text-sm md:text-base">Opening Date: September 20, 2025</span>
           </div>
-          <CountdownTimer date={"2025-09-15T00:00:00"} />
+          <CountdownTimer date={"2025-09-20T00:00:00"} />
         </motion.div>
       </motion.div>
     </motion.div>
