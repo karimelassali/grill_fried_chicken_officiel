@@ -51,7 +51,7 @@ const BrandName = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <span className="text-white font-semibold">Authentic Halal Fast Food</span> 
+          <span className="text-white font-semibold">Authentic Pakistani Cuisine</span> 
           <span className="text-white mx-2 md:mx-3">•</span> 
           <span className="text-white font-semibold">Premium Quality</span> 
           <span className="text-white mx-2 md:mx-3">•</span> 

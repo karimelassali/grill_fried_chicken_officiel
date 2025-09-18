@@ -26,7 +26,7 @@ export default function AIAssistant() {
 
   const restaurantInfo = {
     name: "Spicy Town CSG",
-    cuisine: "Authentic Halal Fast Food",
+    cuisine: "Authentic Pakistani Cuisine",
     specialties: "Traditional spicy dishes, grilled specialties, authentic flavors, and fresh ingredients",
     location: "Castel San Giovanni, Italy",
     phone: "+39 3510505298",
@@ -102,7 +102,7 @@ export default function AIAssistant() {
       {
         id: 1,
         type: "bot",
-        content: "👋 **Welcome to Spicy Town CSG!** 🌶️\n\n🍽️ Authentic Halal Fast Food in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 20, 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
+        content: "👋 **Welcome to Spicy Town CSG!** 🌶️\n\n🍽️ Authentic Pakistani Cuisine in Castel San Giovanni, Italy\n✅ 100% Halal Certified | 📅 Opening September 20, 2025\n\n💬 Ask me about: Menu • Location • Hours • Contact\n👨‍🍳 Owner: Abdulrehman Gujjar | 📞 +39 3510505298\n\n🔥 Ready to help!",
         timestamp: new Date(),
       },
     ]);
@@ -191,11 +191,11 @@ IMPORTANT: Keep responses SHORT and CONCISE (max 50-80 words). Be direct and to 
     } else if (lowerMessage.includes('instagram') || lowerMessage.includes('social')) {
               return "📱 **Social:** Instagram @spicytown_csg | TikTok @spicytown_csg | WhatsApp +39 3510505298";
     } else if (lowerMessage.includes('owner') || lowerMessage.includes('who owns') || lowerMessage.includes('founder')) {
-      return "👨‍🍳 **Owner:** Abdulrehman Gujjar - Dedicated to serving authentic Indian cuisine in Castel San Giovanni! 🌶️";
+      return "👨‍🍳 **Owner:** Abdulrehman Gujjar - Dedicated to serving authentic Pakistani cuisine in Castel San Giovanni! 🌶️";
     } else if (lowerMessage.includes('developer') || lowerMessage.includes('who made') || lowerMessage.includes('built')) {
               return "💻 **Developer:** Karim El Assali - Created this website and AI assistant for Spicy Town CSG! 🚀";
     } else {
-              return "👋 **Spicy Town CSG** - Authentic Indian cuisine in Castel San Giovanni, Italy. Opening September 20, 2025! Ask about menu, location, hours, or contact info! 🌶️";
+              return "👋 **Spicy Town CSG** - Authentic Pakistani cuisine in Castel San Giovanni, Italy. Opening September 20, 2025! Ask about menu, location, hours, or contact info! 🌶️";
     }
   };
 

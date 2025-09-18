@@ -4,7 +4,7 @@ A modern, spicy-themed landing page for Spicy Town CSG restaurant built with Ast
 
 ## 🌶️ About
 
-Spicy Town CSG is a halal-certified fast food restaurant specializing in spicy burgers and grilled specialties. This landing page showcases our upcoming opening with a countdown timer, contact information, and social media links.
+Spicy Town CSG is a halal-certified Pakistani cuisine restaurant specializing in traditional Pakistani dishes and authentic flavors. This landing page showcases our upcoming opening with a countdown timer, contact information, and social media links.
 
 ## 🚀 Project Structure
 
